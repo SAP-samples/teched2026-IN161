@@ -1,58 +1,50 @@
-# Containing Files
-
-1. The LICENSE file:
-In most cases, the license for SAP sample projects is `Apache 2.0`.
-
-2. The REUSE.toml file: 
-The [Reuse Tool](https://reuse.software/) must be used for your samples project. You can find the REUSE.toml in the project initial. Please replace the parts inside the single angle quotation marks < > by the specific information for your repository.
-
-3. The README.md file (this file):
-Please edit this file as it is the primary description file for your project. You can find some placeholder titles for sections below.
-
-# Session ID - Session Title
-
-## Description
-
-This repository contains the material for the SAP TechEd 2026 session called Session ID - Session Title.  
+# IN161 – Getting Started with Integration Advisor and Trading Partner Management
 
 ## Overview
 
-This session introduces attendees to...
+In this hands-on session, you will onboard a new trading partner using the following SAP Integration Suite capabilities:
+- Integration Advisor (IA)
+- Trading Partner Management (TPM)
+- Cloud Integration (CI)
 
-## Requirements
+To get the most out of the session, we recommend familiarity with EDI and related data structures (e.g., IDoc, SOAP, X12, EDIFACT) and a basic understanding of Cloud Integration.
 
-The requirements to follow the exercises in this repository are...
+The business process simulated here is part of the procure-to-pay cycle, which typically includes:
+- Purchase Order (two-way transaction)
+- Shipment Notification
+- Invoice
+
+This exercise focuses only on the first transaction.
+
+No additional tools (such as Postman) are required. An iFlow simulates the trading partner by sending an EDIFACT ORDERS message. There is no connected S/4HANA system; instead, another iFlow receives the ORDERS IDoc message and responds with an ORDRSP IDoc sent to TPM via the ProcessDirect adapter. After TPM processes the message, a simulated trading partner receives the ORDRSP as an EDIFACT message over AS2 and forwards it to your personal email inbox for verification.
+
+In Exercise 1, you will reuse existing Message Implementation Guidelines (MIGs), Mapping Guidelines (MAGs), and a complete Agreement. In Exercise 2, you will copy and configure the iFlow that simulates your trading partner and send a test message. In Exercise 3, you will monitor the messages. In Exercise 4, you will onboard the same trading partner again, this time with options to modify the MIGs and MAGs. In Exercise 5, you will create a new Message Implementation Guideline. In Exercise 6, you will create an overlay mapping guideline to adjust the mapping. The final exercise covers functional acknowledgments and how to handle different scenarios.
 
 ## Exercises
 
-Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
+- [Exercise 1 – Onboard a new trading partner by reference](exercises/Exercise-1.md)
+- [Exercise 2 – Create an iFlow for the test message and send it](exercises/Exercise-2.md)
+- [Exercise 3 – Monitor the message](exercises/Exercise-3.md)
+- [Exercise 4 – Onboard the trading partner by copy](exercises/Exercise-4.md)
+- [Exercise 5 – Create a new Message Implementation Guideline](exercises/Exercise-5.md)
+- [Exercise 6 – Create a new overlay mapping](exercises/Exercise-6.md)
+- [Exercise 7 – Work with the functional acknowledgment](exercises/Exercise-7.md)
 
-- [Getting Started](exercises/ex0/)
-- [Exercise 1 - First Exercise Description](exercises/ex1/)
-    - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
-    - [Exercise 1.2 - Exercise 1 Sub Exercise 2 Description](exercises/ex1#exercise-12-sub-exercise-2-description)
-- [Exercise 2 - Second Exercise Description](exercises/ex2/)
-    - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
-    - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
+Please give us feedback for this session **IN161**
 
-  
-**OR** Link to the Tutorial Navigator for example...
-
-Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).
-
-**IMPORTANT**
-
-Your repo must contain the .reuse and LICENSES folder and the License section below. DO NOT REMOVE the section or folders/files. Also, remove all unused template assets(images, folders, etc) from the exercises folder. 
+![QR Code](exercises/assets/survey_QR.png)
 
 ## Contributing
+
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribution guidelines.
 
 ## Code of Conduct
 Please read the [SAP Open Source Code of Conduct](https://github.com/SAP-samples/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## How to obtain support
-
-Support for the content in this repository is available during the actual time of the online session for which this content has been designed. Otherwise, you may request support via the [Issues](../../issues) tab.
+Support for the content in this repository is available during the scheduled online session for which this content was designed.
 
 ## License
-Copyright (20xx-)20xx SAP SE or an SAP affiliate company and <your-project> contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP/<your-project>).
+Copyright (c) 2024 SAP SE or an SAP affiliate company. All rights reserved.
+
+This project is licensed under the Apache License, version 2.0, except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
