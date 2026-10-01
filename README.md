@@ -1,4 +1,4 @@
-# IN161 – Getting Started with Integration Advisor and Trading Partner Management
+# IN161 – Onboard a trading partner from agreement to live monitoring
 
 ## Overview
 

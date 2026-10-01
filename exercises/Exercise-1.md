@@ -156,7 +156,7 @@ Now, on the Connection tab:
 Switch to the Processing tab and complete the remaining required fields:
 - Own AS2 ID: OwnId-XX
 - Partner AS2 ID: PartnerId-XX
-- Message Subject: Teched IN161 Workshop
+- Message Subject: IN161 – Onboard a trading partner from agreement to live monitoring
 - Own email address: your email address (you will receive the EDIFACT Order Response message by email)
 - Content Type: application/EDIFACT   
 
