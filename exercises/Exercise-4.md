@@ -1,7 +1,7 @@
 # IN161 - Exercise 4 - Onboard the Trading Partner by Copying
 
 ## Overview
-If you create an agreement with the Bind option, you cannot modify the process or change the MIGs and MAGs. Because our trading partner needs slightly different MIGs and MAGs that you will create in the following exercises, we first need an agreement that allows you to modify them. You can do this by instantiating the agreement from the template using the Copy option.
+If you create an agreement with the Bind option, you cannot modify the process or replace the mapping. So far the agreement has used the mapping that was migrated from PI/PO. In the following exercises you will build your own Mapping Guideline (MAG) and use it instead – and for that you need an agreement that lets you change the mapping. You can achieve this by instantiating the agreement from the template using the Copy option.
 
 As usual: replace XX with your participant number wherever it appears.
 
@@ -61,7 +61,7 @@ Open your package IN161-UserXX (replace XX with your number).
 ----
 
 ![IN161_049](assets/IN161_049.png)
-Go to Artifacts, click the three dots (...) on the iFlow, then click Deploy. This simulates the trading partner and sends an EDIFACT Order.
+Go to Artifacts, click the three dots (...) on the iFlow, then click Deploy. This simulates the QM system: it sends the ZQMOUTTC IDoc, which TPM maps to an ANSI X12 863 message and sends to your trading partner.
 
 ----
 
@@ -76,10 +76,10 @@ Click the Interchanges tile.
 ----
 
 ![IN161_052](assets/IN161_052.png)
-Click Go and check whether you can find the interchanges for your trading partner. You should see two lines: one for the incoming Order and one for the outgoing Order Response.
+Click Go and check whether you can find the interchange for your trading partner. You should see your outbound interchange: the ANSI X12 863 test-results message sent to your trading partner.
 
 ----
-Continue with: [Exercise 5 - Create a New Message Implementation Guideline](Exercise-5.md)
+Continue with: [Exercise 5 - Create your own Mapping Guideline (MAG) using proposals](Exercise-5.md)
 
 Please give us feedback for this session **IN161**
 

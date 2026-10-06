@@ -1,7 +1,7 @@
-# IN161 - Exercise 2 - Create an iFlow for the test message and send the message
+# IN161 - Exercise 2 - Send a test message
 
 ## Overview
-In this exercise, you will copy an existing iFlow into your own package and configure it to simulate a trading partner.
+In this exercise, you will copy an existing iFlow into your own package and configure it to simulate the sending S/4HANA QM system. When deployed, the iFlow pushes a ZQMOUTTC IDoc (the quality certificate) into TPM, which maps it to an ANSI X12 863 message and sends it to your trading partner.
 Replace XX with your participant number wherever it appears.
 
 ![IN161_024](assets/IN161_024.png)
@@ -37,7 +37,7 @@ Open the Artifacts tab, click the three dots (...), then click Copy.
 ![IN161_029](assets/IN161_029.png)
 
 In the Copy dialog:
-- Rename the iFlow to IN161 - Send EDIFACT Order_UserXX (replace XX with your number).
+- Rename the iFlow to IN161 - Send X12 863_UserXX (replace XX with your number).
 - Select your package IN161-UserXX (replace XX with your number).
 - Click Copy.
 
@@ -66,7 +66,7 @@ In the Configure screen:
 ![IN161_033](assets/IN161_033.png)
 
 Confirm the deployment by clicking Yes.
-After deployment, the simulated trading partner will send an EDIFACT Order message.
+After deployment, the simulated QM system sends a ZQMOUTTC IDoc. TPM maps it to an ANSI X12 863 message and sends it to your trading partner.
 
 ----
 Continue with: [Exercise 3 - monitor the message](Exercise-3.md)

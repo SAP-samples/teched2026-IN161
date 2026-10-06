@@ -42,7 +42,7 @@ Go to Identifiers and click Create in Single Identifiers.
 
 ![IN161_006](assets/IN161_006.png)
 
-In the pop-up, create the identifier that will later be used in the (simulated) S/4 system. Use the exact casing shown:
+In the pop-up, create the identifier that will later be used in the (simulated) S/4HANA QM system. Use the exact casing shown:
 - Identification: O-UserXX (this is the letter O, not zero)
 - Alias: TP-SAP-IDoc-ID
 - Type System: SAP S/4HANA On Premise IDoc
@@ -54,11 +54,11 @@ Save the identifier.
 
 ![IN161_007](assets/IN161_007.png)
 
-Create another identifier that will later be used in the (simulated) trading partner system. Use the exact casing shown:
-- Identification: UNEDI_TP_E_UserXX (replace XX with your number)
-- Alias: TP-UN-EDIFACT D.02A-ID
-- Type System: UN/EDIFACT
-- Scheme: DUNS (Data Universal Numbering System) — use the one with qualifier 1 (there are two DUNS entries)
+Create another identifier that represents your trading partner in the ANSI X12 world. Use the exact casing shown:
+- Identification: X12TP-UserXX (replace XX with your number)
+- Alias: TP-ANSI-X12-004010-ID
+- Type System: ANSI X12
+- Scheme: DUNS (Data Universal Numbering System) — use the one with the X12 interchange qualifier 01 (there are two DUNS entries)
 
 Save the identifier.
 More information around the identifiers can be found here: [Understanding Identifiers in Agreement](https://help.sap.com/docs/integration-suite/sap-integration-suite/understanding-identifiers-in-agreement?locale=en-US)
@@ -75,7 +75,7 @@ Go to the Security tab and click Create.
 
 ![IN161_009](assets/IN161_009.png)
 
-Create the material for the incoming connection with:
+Create the material for the connection with:
 - AS2 Partner ID: O-UserXX (letter O, not zero; replace XX with your number)
 - Alias: TP-B2B UserXX (replace XX with your number)
 
@@ -123,7 +123,7 @@ Assign the type system your trading partner will use. Open the newly created sys
 
 ![IN161_014](assets/IN161_014.png)
 
-Select UN/EDIFACT and Version D.02A S3, then click Add.
+Select ANSI X12 and Version 004010, then click Add.
 
 ----
 ----
@@ -137,7 +137,7 @@ Go to Communications and click Create Communication.
 
 ![IN161_016](assets/IN161_016.png)
 
-In the Add Communication dialog, enter the details so you can later send the Order Response message to your trading partner:
+In the Add Communication dialog, enter the details so you can later send the X12 863 test-results message to your trading partner:
 - Name: AS2.Receiver
 - Alias: TP-AS2.Receiver
 - Direction: Receiver
@@ -157,8 +157,8 @@ Switch to the Processing tab and complete the remaining required fields:
 - Own AS2 ID: OwnId-XX
 - Partner AS2 ID: PartnerId-XX
 - Message Subject: IN161 – Onboard a trading partner from agreement to live monitoring
-- Own email address: your email address (you will receive the EDIFACT Order Response message by email)
-- Content Type: application/EDIFACT   
+- Own email address: your email address (you will receive the ANSI X12 863 test-results message by email)
+- Content Type: application/EDI-X12   
 
 Click Save.
 
@@ -167,7 +167,7 @@ Click Save.
 
 ![IN161_018](assets/IN161_018.png)
 
-Create the second communication channel so you can receive the EDIFACT Order message from your trading partner:
+Create a second communication channel. It is not needed for the outbound message itself, but you will use it in the bonus exercise to receive the functional acknowledgment (X12 997) that your trading partner sends back:
 - Name: AS2.Sender
 - Alias: TP-AS2.Sender
 - Direction: Sender
@@ -210,14 +210,14 @@ Change the agreement name to IN161-UserXX-bind (replace XX with your number), th
 ----
 
 ![IN161_023](assets/IN161_023.png)
-The agreement created from the template in "by-reference" mode shows a two-way business transaction guided by the UN/CEFACT Modelling Methodology. This B2B scenario defines a structured sequence of business transactions between a company and its trading partner to fulfill contractual obligations, ensuring efficient and compliant business collaboration.
+The agreement created from the template in "by-reference" mode shows a one-way, outbound business transaction for sending the Report of Test Results to your trading partner. At this stage it uses the mapping that was **migrated from PI/PO** and is already available in the tenant, so you can send a message right away – without having built any mapping yourself yet.
 Let's see this in action!
 **Click 'Activate'**. After activation, your trading partner is onboarded and you can proceed to send the first message.
 
 ----
 ----
 
-Continue with: [Exercise 2 - create an iFlow for the test message and send the message](Exercise-2.md)
+Continue with: [Exercise 2 - Send a test message](Exercise-2.md)
 
 Please give us feedback for this session **IN161**
 

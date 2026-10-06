@@ -1,6 +1,7 @@
-# IN161 - Exercise 7 — Working with the Functional Acknowledgment
+# IN161 - Exercise 7 — (Bonus) Working with the Functional Acknowledgment
 
 ## Overview
+In ANSI X12, the functional acknowledgment is the **997**. Your trading partner sends it back to confirm whether the X12 863 message you sent was syntactically accepted – fully, partially, or not at all. In this bonus exercise you will enable the receipt of the 997 in your Trading Partner Agreement and observe its status in the B2B Monitor.
 
 ![IN161-7_01](assets/IN161-7_01.png)
 In the left-hand navigation, go to *Design* > *B2B Scenarios*.
@@ -40,7 +41,7 @@ Select *Interchange (outgoing)* and check the *Receiver Functional Acknowledgmen
 ----
 
 ![IN161-7_07](assets/IN161-7_07.png)
-Go to the *Communication* tab and set *Channel* to the endpoint through which your trading partner will send the CONTRL message.
+Go to the *Communication* tab and set *Channel* to the endpoint through which your trading partner will send the X12 997 functional acknowledgment.
 
 ----
 ----
@@ -66,7 +67,7 @@ Then send a test message (by deploying the *Integration Flow (iFlow)* in the *Pa
 ----
 
 ![IN161-7_11](assets/IN161-7_11.png)
-Because the CONTRL message your trading partner sends back is a partial acknowledgment, you can adjust the setting that controls how this partial status is displayed in monitoring. Change the setting and send another message to see the different behavior.
+Because the X12 997 your trading partner sends back can report a partial acknowledgment, you can adjust the setting that controls how this partial status is displayed in monitoring. Change the setting and send another message to see the different behavior.
 
 Congratulations — you have finished the TechEd exercise!
 

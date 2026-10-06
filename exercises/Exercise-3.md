@@ -1,7 +1,7 @@
 # IN161 - Exercise 3 - Monitor the message
 
 ## Overview
-In this exercise, you will monitor the message you sent in the previous exercise.
+In this exercise, you will monitor the outbound ANSI X12 863 message you sent in the previous exercise.
 
 ![IN161_034](assets/IN161_034.png)
 

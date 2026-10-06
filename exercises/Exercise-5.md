@@ -1,114 +1,94 @@
-# IN161 - Exercise 5 - Create a New Message Implementation Guideline
+# IN161 - Exercise 5 - Create your own Mapping Guideline (MAG) using proposals
 
 ## Overview
-In the next two exercises
-Here is the message your trading partner expects for the ORDRSP message:
+Until now, your agreement has used the mapping that was **migrated from PI/PO** and was already available in the tenant. That is the fastest way to go live, but you often want to own and evolve the mapping yourself in Integration Advisor.
 
-```
-UNB+UNOY:3+1234567890123:1+UNEDI_TP_E_UserXX:1+251029:1803+000150'
-UNH+5220230+ORDRSP:D:02A:UN:DF0320'
-BGM++0000347163'
-DTM+11:20231007:102'
-RFF+ON:20231004'
-NAD+BY+8711389000001'
-NAD+DP+0001000654+++201 1st St+Heinzdorf++758033'
-CUX+2:USD'
-LIN++5'
-PIA+1+MZ-FG-S100'
-QTY+21:8.000:PCE'
-UNS+S'
-MOA+203:158672.00:USD'
-UNT+13+5220230'
-UNZ+1+000150'
-```
+In this exercise you will create your **own Mapping Guideline (MAG)** that maps the SAP IDoc **ZQMOUTTC** (quality certificate) to the **ANSI X12 863** (Report of Test Results). Instead of mapping every field by hand, you will let the Integration Advisor **knowledge base propose** the mapping for you. Finally, you will plug your new MAG into your Copy agreement, send a message, and verify the result in the B2B Monitor.
 
-You will need this file in the MIG editor; download it here: [EDIFACT Ordrsp message](Payload/EDIFACT-Ordrsp-Overlay.edi.txt).
+The source and target Message Implementation Guidelines (MIGs) already exist in the tenant:
+- Source MIG: _QM-863 SAP IDoc ZQMOUTTC - Source_
+- Target MIG: _QM-863 ANSI X12 004010 863 - Target_
+
+As usual, replace XX with your participant number wherever it appears.
+
+----
 
 ![IN161-5_01](assets/IN161-5_01.png)
-Start by navigating to MIGs (Design -> MIGs), then click Create to create a new MIG.
+In the left-hand navigation, go to Design -> MAGs.
 
 ----
 
 ![IN161-5_02](assets/IN161-5_02.png)
-On the next screen, you will see the standards supported by Integration Advisor. Scroll down until you find UN/EDIFACT and select it.
+Click Create -> MAG.
 
 ----
 
 ![IN161-5_03](assets/IN161-5_03.png)
-Because the standard contains many messages, search for ORDRSP and select it.
+Select the source MIG: _QM-863 SAP IDoc ZQMOUTTC - Source_.
 
 ----
 
 ![IN161-5_04](assets/IN161-5_04.png)
-The EDIFACT standard has many versions. In our example, the trading partner expects version D.02A S3.
+Select the target MIG: _QM-863 ANSI X12 004010 863 - Target_.
 
 ----
 
 ![IN161-5_05](assets/IN161-5_05.png)
-Because we do not want to modify the envelope, on the next screen select None so the envelope is automatically created by TPM.
-For more detail on envelope handling, see this blog (https://community.sap.com/t5/technology-blog-posts-by-sap/using-edi-envelopes-in-integration-advisor/ba-p/13915328) and the TPM documentation (https://help.sap.com/docs/integration-suite/sap-integration-suite/envelope-handling-in-migs?locale=en-US).
+Enter the MAG name using the following naming scheme: _QM-863 IN161-XX ZQMOUTTC-to-ANSI X12 004010 863_ (replace XX with your number), then click Create.
 
 ----
 
 ![IN161-5_06](assets/IN161-5_06.png)
-The next step can save a lot of time if you have the payload of your trading partner’s message (download it from Payload/EDIFACT-Ordrsp-Overlay.edi.txt and attach it using the Browse button). Using an existing payload validates qualifiers and used fields, and the content can be reused as example values.
-Also select Use File Content as Example Values, then click Next.
+Your new MAG opens in the mapping editor. It is still empty – no fields are mapped yet. To avoid mapping everything manually, request a proposal from the knowledge base: click _Proposal_.
 
 ----
 
 ![IN161-5_07](assets/IN161-5_07.png)
-On this screen, select which qualifiers you want to set at each level. Qualifiers define the semantics of a node. For example, the DTM node is qualified with 11 here, which means this date is the expected dispatch or shipment date.
-Select all the checkboxes marked in red in the screenshot:
-- UNH
-- DTM
-- DTM->C507->2380
-- SG1
-- SG3
+To automatically apply the proposal with the highest confidence, click _Select Best Proposal_.
 
 ----
 
 ![IN161-5_08](assets/IN161-5_08.png)
-Continue by selecting the qualifiers for:
-- SG8->CUX->C504
+Because the knowledge base can include mapping functions that may not work in your context, select _Use Only Valid Mappings_ to exclude non-working snippets.
 
 ----
 
 ![IN161-5_09](assets/IN161-5_09.png)
-Continue by selecting the qualifiers for:
-- SG26->PIA
-- SG26->QTY
+Review the proposed mappings. The knowledge base maps the quality-relevant fields (for example, inspection/test values and their units) from the ZQMOUTTC structure to the corresponding X12 863 segments. Then click _Save_.
 
 ----
 
 ![IN161-5_10](assets/IN161-5_10.png)
-Continue by selecting the qualifiers for:
-- MOA
-- CNT
-
-Be especially careful when selecting the qualifier for MOA: MOA exists both inside SG26 (do not qualify it there) and at the highest level.
-
-Now that you have completed the qualification, click Next to continue.
+You should see a success message confirming that your MAG has been created and saved.
 
 ----
 
+Now use your new MAG in your agreement.
+
 ![IN161-5_11](assets/IN161-5_11.png)
-Provide the MIG name, direction, and business context.
-Use the following naming scheme for the name: P2P-01 IN161-XX - UN-EDIFACT D.02A ORDRSP - Target (replace XX with your number).
-Set Direction to Both and, for Own Business Context, select Business Process and then Manage Purchase Order.
-Click Create to create the MIG.
+In the left-hand navigation, go to B2B Scenarios -> Agreements. Open your agreement IN161-UserXX-copy (replace XX with your number). It should be _Active_ from the previous exercise.
 
 ----
 
 ![IN161-5_12](assets/IN161-5_12.png)
-You should see a success message confirming that you have created a new MIG that matches your trading partner’s requirements.
+Switch to the B2B Scenarios tab and set the B2B Scenario to _Edit_ mode. In the Report of Test Results transaction flow:
+- Click the _Mapping_ box.
+- In the details pane, click the _Mapping_ field to open the selection dialog.
+- Search for IN161 and select your MAG: _QM-863 IN161-XX ZQMOUTTC-to-ANSI X12 004010 863_ (replace XX with your number), then click _Choose_.
 
 ----
 
-Continue with: [Exercise 6 - Create a New Overlay Mapping](Exercise-6.md)
+![IN161-5_13](assets/IN161-5_13.png)
+Click _Save_ on the agreement, then click _Update_ to write the changes to the Partner Directory. Wait until the extraction of runtime data is complete and the agreement returns to _Active_.
 
-Please give us feedback for this session **IN161**
+----
 
-![QR Code](assets/survey_QR.png)
+![IN161-5_14](assets/IN161-5_14.png)
+Send a test message: go to Design -> Integrations and APIs -> IN161-UserXX, open _Artifacts_, click _More_ (...) -> _Deploy_. Then go to Monitor -> B2B Scenarios -> Interchanges, click _Go_, and open your outbound interchange to confirm the ANSI X12 863 message was produced by your own MAG.
+
+----
+
+Continue with: [Exercise 6 - Enhance the mapping with Joule](Exercise-6.md)
 
 Please give us feedback for this session **IN161**
 
