@@ -1,6 +1,6 @@
 # IN161 - Exercise 1 - Onboard a new trading partner by reference
 
-Log in to the tenant: [IN161 Tenant](https://url.sap/nvxsuf)
+Log in to the tenant: [IN161 Tenant](https://url.sap/33psy1)
 
 ![Login](assets/IN161_Exercise1_1.png)
 
