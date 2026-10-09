@@ -1,104 +1,103 @@
 # IN161 - Exercise 1 - Onboard a new trading partner by reference
 
 Log in to the tenant: [IN161 Tenant](https://url.sap/nvxsuf)
-![IN161_001](assets/IN161_001.png)
-User: UserXX, where XX is your participant number. This number is important and will be used in several places during the exercise. Wherever XX is mentioned, replace it with your number.
+
+![Login](assets/IN161_Exercise1_1.png)
+
+User: UserXXX, where XXX is your participant number. This number is important and will be used in several places during the exercise. Wherever XXX is mentioned, replace it with your number.
 Make sure to use the exact capitalization shown here, as the exercises may not work correctly otherwise.
 You will receive the password from your trainers.
-This is the tenant you will work on: [IN161 Tenant](https://url.sap/nvxsuf)
 
 ----
-----
 
-![IN161_002](assets/IN161_002.png)
+![Go to B2B Scenarios](assets/IN161_Exercise1_2.png)
 
 In the left-hand navigation, go to Design -> B2B Scenarios.
 
 ----
-----
 
-![IN161_003](assets/IN161_003.png)
+![Create Trading Partner](assets/IN161_Exercise1_3.png)
 
 Go to Partner Profiles and click Create, then select Trading Partner.
 
 ----
-----
 
-![IN161_004](assets/IN161_004.png)
+![Trading Partner Overview](assets/IN161_Exercise1_4.png)
 
 In Overview, enter:
-- Company Name: IN161-UserXX (replace XX with your number)
-- Company Short Name: IN161-UserXX
+- Company Name: IN161-UserXXX (replace XXX with your number)
+- Company Short Name: IN161-UserXXX
+
+Then click Save.
 
 ----
-----
 
-![IN161_005](assets/IN161_005.png)
+![Identifiers - Create](assets/IN161_Exercise1_5.png)
 
 Go to Identifiers and click Create in Single Identifiers.
 
 ----
-----
 
-![IN161_006](assets/IN161_006.png)
+![Create X12 identifier](assets/IN161_Exercise1_6.png)
 
-In the pop-up, create the identifier that will later be used in the (simulated) S/4HANA QM system. Use the exact casing shown:
-- Identification: O-UserXX (this is the letter O, not zero)
-- Alias: TP-SAP-IDoc-ID
-- Type System: SAP S/4HANA On Premise IDoc
-- Scheme: N/A
-Save the identifier.
-
-----
-----
-
-![IN161_007](assets/IN161_007.png)
-
-Create another identifier that represents your trading partner in the ANSI X12 world. Use the exact casing shown:
-- Identification: X12TP-UserXX (replace XX with your number)
-- Alias: TP-ANSI-X12-004010-ID
-- Type System: ANSI X12
-- Scheme: DUNS (Data Universal Numbering System) — use the one with the X12 interchange qualifier 01 (there are two DUNS entries)
+Create the identifier that represents your trading partner in the ANSI X12 world. Use the exact casing shown:
+- Identification: X.12-TP-E-UserXXX (replace XXX with your number)
+- Alias: TP-X.12 4010-Id
+- Type System: ASC X12
+- Scheme: Duns (Dun & Bradstreet)
 
 Save the identifier.
 More information around the identifiers can be found here: [Understanding Identifiers in Agreement](https://help.sap.com/docs/integration-suite/sap-integration-suite/understanding-identifiers-in-agreement?locale=en-US)
 
 ----
+
+![Create SAP IDoc identifier](assets/IN161_Exercise1_7.png)
+
+Create a second identifier that will be used in the (simulated) S/4HANA QM system. Use the exact casing shown:
+- Identification: O-UserXXX (this is the letter O, not zero)
+- Alias: TP-SAP-IDoc-Id
+- Type System: SAP S/4HANA On Premise IDoc
+- Scheme: N/A
+
+Save the identifier.
+
 ----
 
-![IN161_008](assets/IN161_008.png)
+![Security - Create Signature](assets/IN161_Exercise1_8.png)
 
-Go to the Security tab and click Create.
+Go to the Security tab and click Create Signature.
 
 ----
-----
 
-![IN161_009](assets/IN161_009.png)
+![Signature Verification Configuration](assets/IN161_Exercise1_9.png)
 
 Create the material for the connection with:
-- AS2 Partner ID: O-UserXX (letter O, not zero; replace XX with your number)
-- Alias: TP-B2B UserXX (replace XX with your number)
+- AS2 Partner ID: O-UserXXX (letter O, not zero; replace XXX with your number)
+- Alias: TP-B2B UserXXX (replace XXX with your number)
 
 Save the configuration.
 
 ----
-----
 
-![IN161_010](assets/IN161_010.png)
+![Activate security configuration](assets/IN161_Exercise1_10.png)
 
-This configuration must be written to the Partner Directory, so you need to activate it. Click the check mark and confirm the activation.
-
-----
-----
-
-![IN161_011](assets/IN161_011.png)
-
-Next, go to Systems and click Create System.
+This configuration must be written to the Partner Directory, so you need to activate it. Click the activation toggle for your configuration.
 
 ----
+
+![Confirm activation](assets/IN161_Exercise1_11.png)
+
+Confirm the activation by clicking Confirm.
+
 ----
 
-![IN161_012](assets/IN161_012.png)
+![Systems - Create System](assets/IN161_Exercise1_12.png)
+
+Next, go to the Systems tab and click Create System.
+
+----
+
+![Create system](assets/IN161_Exercise1_13.png)
 
 Enter the system details:
 - Name: B2B System
@@ -108,34 +107,29 @@ Enter the system details:
 
 Click Save.
 
-The purpose influences the [payload indicator](https://help.sap.com/docs/integration-suite/sap-integration-suite/payload-indicator-in-integration-flow-message-processing?locale=en-US) 
+The purpose influences the [payload indicator](https://help.sap.com/docs/integration-suite/sap-integration-suite/payload-indicator-in-integration-flow-message-processing?locale=en-US).
 
-Now click on the created system to open it and continue with the exercise.
-----
 ----
 
-![IN161_013](assets/IN161_013.png)
+![Create Type System](assets/IN161_Exercise1_14.png)
 
 Assign the type system your trading partner will use. Open the newly created system, go to Type Systems, and click Create Type System.
 
 ----
-----
 
-![IN161_014](assets/IN161_014.png)
+![Assign ASC X12 004010](assets/IN161_Exercise1_15.png)
 
-Select ANSI X12 and Version 004010, then click Add.
-
-----
-----
-
-![IN161_015](assets/IN161_015.png)
-
-Go to Communications and click Create Communication.
+Select Name ASC X12 and Version 004010, then click Add.
 
 ----
+
+![Communications - Create Communication](assets/IN161_Exercise1_16.png)
+
+Go to the Communications tab and click Create Communication.
+
 ----
 
-![IN161_016](assets/IN161_016.png)
+![Add Communication - Connection](assets/IN161_Exercise1_17.png)
 
 In the Add Communication dialog, enter the details so you can later send the X12 863 test-results message to your trading partner:
 - Name: AS2.Receiver
@@ -144,77 +138,91 @@ In the Add Communication dialog, enter the details so you can later send the X12
 - Adapter: AS2
 
 Now, on the Connection tab:
-- Recipient URL: https://workshop-eu-03a.it-cpi033-rt.cfapps.eu10-005.hana.ondemand.com/as2/as2
+- Recipient URL: https://workshop04a.it-cpi049-rt.cfapps.eu10-003.hana.ondemand.com/as2/as2
 - Authentication Type: Basic Authentication
 - Credential Name: ESB
 
 ----
-----
 
-![IN161_017](assets/IN161_017.png)
+![Add Communication - Processing](assets/IN161_Exercise1_18.png)
 
 Switch to the Processing tab and complete the remaining required fields:
-- Own AS2 ID: OwnId-XX
-- Partner AS2 ID: PartnerId-XX
-- Message Subject: IN161 – Onboard a trading partner from agreement to live monitoring
-- Own email address: your email address (you will receive the ANSI X12 863 test-results message by email)
-- Content Type: application/EDI-X12   
+- Own AS2 ID: OwnId-XXX
+- Partner AS2 ID: PartnerId-XXX
+- Message Subject: Teched IN161 Workshop
+- Own E-mail address: your email address (you will receive the ANSI X12 863 test-results message by email)
+- Content-Type: application/X.12
 
 Click Save.
 
 ----
-----
 
-![IN161_018](assets/IN161_018.png)
+![Activate communication channel](assets/IN161_Exercise1_19.png)
 
-Create a second communication channel. It is not needed for the outbound message itself, but you will use it in the bonus exercise to receive the functional acknowledgment (X12 997) that your trading partner sends back:
-- Name: AS2.Sender
-- Alias: TP-AS2.Sender
-- Direction: Sender
-- Adapter: AS2
-- Security Configuration Mode: Profile
-- AS2 Partner ID: O-UserXX (should be prefilled with your number)  
-Click Save.
+Activate the communication channel so it is deployed to the Partner Directory. Click the activation toggle for AS2.Receiver and confirm with Activate.
 
 ----
-----
 
-![IN161_019](assets/IN161_019.png)
+![Agreements - Create](assets/IN161_Exercise1_20.png)
 
 The basic master data for the trading partner has now been saved. Next, you will create a B2B scenario via a Trading Partner Agreement. The required agreement template with all master data details has already been set up for you.
-Go to Agreements and click **Create**.
+Go to the Agreements tab and click Create.
 
 ----
-----
 
-![IN161_020](assets/IN161_020.png)
+![Select Agreement Template](assets/IN161_Exercise1_21.png)
 
-Select the agreement template named IN161-SimpleExerciseTemplate and click Next.
-
-----
-----
-
-![IN161_021](assets/IN161_021.png)
-
-In this exercise, we will use the by-reference variant. This is helpful if all your trading partners expect the same MIG, MAG, etc.
-Click Bind with Template, select your trading partner IN161-UserXX in the dropdown, and click Open Draft.
+In step 1 of the wizard, select the agreement template named Quality Certificate (Initiator: Ironvale Steel Corp.), then click Next.
 
 ----
-----
 
-![IN161_022](assets/IN161_022.png)
+![Select Agreement Template Version](assets/IN161_Exercise1_22.png)
 
-Change the agreement name to IN161-UserXX-bind (replace XX with your number), then click Save.
-
-----
-----
-
-![IN161_023](assets/IN161_023.png)
-The agreement created from the template in "by-reference" mode shows a one-way, outbound business transaction for sending the Report of Test Results to your trading partner. At this stage it uses the mapping that was **migrated from PI/PO** and is already available in the tenant, so you can send a message right away – without having built any mapping yourself yet.
-Let's see this in action!
-**Click 'Activate'**. After activation, your trading partner is onboarded and you can proceed to send the first message.
+In step 2, select the Draft version of the Quality Certificate template, then click Next.
 
 ----
+
+![Select Creation Mode - Bind](assets/IN161_Exercise1_23.png)
+
+In step 3, select the Agreement Creation Mode. In this exercise, we use the by-reference variant: choose Bind with Template. This is helpful if all your trading partners expect the same MIG, MAG, etc. Make sure the transaction QualityCertificate_Outbound is selected, then click Next.
+
+----
+
+![Select Trading Partner](assets/IN161_Exercise1_24.png)
+
+In step 4, open the Name dropdown and select your trading partner IN161-UserXXX (replace XXX with your number), then click Next.
+
+----
+
+![Review and Open Draft](assets/IN161_Exercise1_25.png)
+
+In step 5, review your selections and click Open Draft.
+
+----
+
+![Agreement Overview - Save](assets/IN161_Exercise1_26.png)
+
+The agreement draft opens. Keep (or adjust) the agreement name Quality Certificate-UserXXX (replace XXX with your number). Note that your company (Ironvale Steel Corp.) is the initiator and your trading partner is the reactor, and that the outbound message is mapped to ASC X12 004010. Click Save.
+
+----
+
+![Activate the agreement](assets/IN161_Exercise1_27.png)
+
+The agreement created in "by-reference" mode shows a one-way, outbound business transaction for sending the Report of Test Results (Mill Test Report) to your trading partner. At this stage it uses the mapping that was **migrated from PI/PO** and is already available in the tenant, so you can send a message right away – without having built any mapping yourself yet.
+Let's see this in action! Click Activate.
+
+----
+
+![Confirm agreement activation](assets/IN161_Exercise1_28.png)
+
+In the Activate Agreement dialog, keep the Activation Mode on Default and click Activate.
+
+----
+
+![Agreement active](assets/IN161_Exercise1_29.png)
+
+The Activation Status now shows Active. Your trading partner is onboarded and you can proceed to send the first message.
+
 ----
 
 Continue with: [Exercise 2 - Send a test message](Exercise-2.md)

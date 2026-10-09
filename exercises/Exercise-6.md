@@ -11,14 +11,14 @@ Typical examples in our Report of Test Results scenario:
 - Map an internal steel-grade / material code to the trading partner's code list.
 - Derive a pass/fail indicator by comparing a measured value against its specification limits.
 
-As usual, replace XX with your participant number wherever it appears.
+As usual, replace XXX with your participant number wherever it appears.
 
 > Note: Joule assistance in Integration Advisor must be enabled for the tenant and may depend on your data center region. If you do not see the Joule option, ask your trainer.
 
 ----
 
 ![IN161-6_01](assets/IN161-6_01.png)
-In the left-hand navigation, go to Design -> MAGs and open your MAG from the previous exercise: _QM-863 IN161-XX ZQMOUTTC-to-ANSI X12 004010 863_ (replace XX with your number).
+In the left-hand navigation, go to Design -> MAGs and open your MAG from the previous exercise: _QM-863 UserXXX ZQMOUTTC-to-ASC X12 004010 863_ (replace XXX with your number).
 
 ----
 
@@ -62,12 +62,12 @@ When you are satisfied with the result, click _Save_ to store your MAG.
 ----
 
 ![IN161-6_09](assets/IN161-6_09.png)
-Your MAG is already assigned to your IN161-UserXX-copy agreement from Exercise 5, so you only need to make the new version effective: open the agreement, click _Save_ and then _Update_ to write the changes to the Partner Directory. Wait until the agreement returns to _Active_.
+Your MAG is already assigned to your Quality Certificate-UserXXX agreement from Exercise 5, so you only need to make the new version effective: open the agreement, click _Save_ and then _Update_ to write the changes to the Partner Directory. Wait until the agreement returns to _Active_.
 
 ----
 
 ![IN161-6_10](assets/IN161-6_10.png)
-Send a test message: go to Design -> Integrations and APIs -> IN161-UserXX, open _Artifacts_, and click _More_ (...) -> _Deploy_.
+Send a test message: go to Design -> Integrations and APIs -> IN161-UserXXX, open _Artifacts_, and click _More_ (...) -> _Deploy_.
 
 ----
 

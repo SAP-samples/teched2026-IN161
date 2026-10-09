@@ -16,8 +16,8 @@ Open *Agreements* in *B2B Scenarios*.
 ----
 
 ![IN161-7_03](assets/IN161-7_03.png)
-Open the *Trading Partner Agreement* between your partners (for example, IN161-UserXX and your counterpart).
-Use your participant number (XX) where applicable.
+Open the *Trading Partner Agreement* between your partners (for example, IN161-UserXXX and your counterpart).
+Use your participant number (XXX) where applicable.
 
 ----
 ----

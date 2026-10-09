@@ -2,7 +2,7 @@
 
 ## Overview
 In this exercise, you will copy an existing iFlow into your own package and configure it to simulate the sending S/4HANA QM system. When deployed, the iFlow pushes a ZQMOUTTC IDoc (the quality certificate) into TPM, which maps it to an ANSI X12 863 message and sends it to your trading partner.
-Replace XX with your participant number wherever it appears.
+Replace XXX with your participant number wherever it appears.
 
 ![IN161_024](assets/IN161_024.png)
 
@@ -18,7 +18,7 @@ Create your own package by clicking Create.
 
 ![IN161_026](assets/IN161_026.png)
 
-Name the package IN161-UserXX (replace XX with your number).
+Name the package IN161-UserXXX (replace XXX with your number).
 
 ----
 
@@ -37,8 +37,8 @@ Open the Artifacts tab, click the three dots (...), then click Copy.
 ![IN161_029](assets/IN161_029.png)
 
 In the Copy dialog:
-- Rename the iFlow to IN161 - Send X12 863_UserXX (replace XX with your number).
-- Select your package IN161-UserXX (replace XX with your number).
+- Rename the iFlow to IN161 - Send X12 863_UserXXX (replace XXX with your number).
+- Select your package IN161-UserXXX (replace XXX with your number).
 - Click Copy.
 
 ----
@@ -58,7 +58,7 @@ Open Artifacts, click the three dots (...), then click Configure.
 ![IN161_032](assets/IN161_032.png)
 
 In the Configure screen:
-- Set UserId to UserXX (replace XX with your number).
+- Set UserId to UserXXX (replace XXX with your number).
 - Click Save, then Deploy.
 
 ----
