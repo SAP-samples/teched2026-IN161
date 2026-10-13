@@ -29,7 +29,7 @@ In the Receiver Name List dialog, select IN161-UserXXX (replace XXX with your nu
 
 ![Filtered results](assets/exercise3/IN161_Exercise3_5.png)
 
-Your trading partner IN161-UserXXX is now set as the receiver filter. Click Go to apply the filter. You should see two Completed interchanges. Click the arrow (>) on one of them to open the interchange details.
+Your trading partner IN161-UserXXX is now set as the receiver filter. Click Go to apply the filter. You should see one Completed interchange for each test message you have sent so far. Click the arrow (>) on one of them to open the interchange details.
 
 ----
 
