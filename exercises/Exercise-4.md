@@ -7,85 +7,139 @@ In this exercise you will therefore **delete** your bind agreement and recreate 
 
 As usual, replace XXX with your participant number wherever it appears.
 
-> Note: Screenshots for this exercise still need to be captured and uploaded (file names `assets/exercise4/IN161_Exercise4_N.png`).
+----
+
+![Navigate to B2B Scenarios](assets/exercise4/IN161_Exercise4_1.png)
+
+In the left-hand navigation, go to Design -> B2B Scenarios.
 
 ----
 
-![Open Agreements](assets/exercise4/IN161_Exercise4_1.png)
+![Open the Agreements tab](assets/exercise4/IN161_Exercise4_2.png)
 
-In the left-hand navigation, go to Design -> B2B Scenarios and open the Agreements tab.
+Click the Agreements tab to see your agreements.
 
 ----
 
-![Open your bind agreement](assets/exercise4/IN161_Exercise4_2.png)
+![Open your bind agreement](assets/exercise4/IN161_Exercise4_3.png)
 
 Open your agreement Quality Certificate-UserXXX (the one you created with Bind in Exercise 1).
 
 ----
 
-![Deactivate the agreement](assets/exercise4/IN161_Exercise4_3.png)
+![Deactivate the agreement](assets/exercise4/IN161_Exercise4_4.png)
 
-Because you want to replace it, first deactivate it. Click Deactivate and confirm.
-
-----
-
-![Delete the agreement](assets/exercise4/IN161_Exercise4_4.png)
-
-Now delete the agreement: click the More menu (...) -> Delete (or the Delete button) and confirm.
+Because you want to replace it, first deactivate it. Click Deactivate.
 
 ----
 
-![Create a new agreement](assets/exercise4/IN161_Exercise4_5.png)
+![Confirm deactivation](assets/exercise4/IN161_Exercise4_5.png)
 
-Click Create to create a new agreement.
-
-----
-
-![Select Agreement Template](assets/exercise4/IN161_Exercise4_6.png)
-
-In step 1 of the wizard, select the agreement template named Quality Certificate (Initiator: Ironvale Steel Corp.), then click Next.
+Confirm that you want to deactivate the agreement by clicking OK.
 
 ----
 
-![Select Template Version](assets/exercise4/IN161_Exercise4_7.png)
+![Delete the agreement](assets/exercise4/IN161_Exercise4_6.png)
+
+The agreement is now Inactive. Click Delete to remove it.
+
+----
+
+![Confirm deletion](assets/exercise4/IN161_Exercise4_7.png)
+
+Confirm the deletion by clicking Delete.
+
+----
+
+![Create a new agreement](assets/exercise4/IN161_Exercise4_8.png)
+
+Your agreement has been deleted. Click Create to create a new agreement from the same template.
+
+----
+
+![Step 1 - Select Agreement Template](assets/exercise4/IN161_Exercise4_9.png)
+
+In step 1 of the wizard, select the agreement template Quality Certificate, then click Next.
+
+----
+
+![Step 2 - Select Template Version](assets/exercise4/IN161_Exercise4_10.png)
 
 In step 2, select the Draft version, then click Next.
 
 ----
 
-![Select Creation Mode - Copy](assets/exercise4/IN161_Exercise4_8.png)
+![Step 3 - Select Creation Mode](assets/exercise4/IN161_Exercise4_11.png)
 
-In step 3, select the Agreement Creation Mode. This time choose **Copy from Template** (not Bind). Copy creates an independent agreement in which you can change the MIGs and MAGs. Make sure the transaction QualityCertificate_Outbound is selected, then click Next.
-
-----
-
-![Select Trading Partner](assets/exercise4/IN161_Exercise4_9.png)
-
-In step 4, open the Name dropdown and select your trading partner IN161-UserXXX, then click Next.
+In step 3, select **Copy from Template** as the Agreement Creation Mode (not Bind). Copy creates an independent agreement in which you can later change the MIGs and MAGs. Make sure the transaction QualityCertificate_Outbound is checked, then click Next.
 
 ----
 
-![Review and Open Draft](assets/exercise4/IN161_Exercise4_10.png)
+![Step 4 - Select Trading Partner](assets/exercise4/IN161_Exercise4_12.png)
 
-In step 5, review your selections and click Open Draft.
-
-----
-
-![Name and Save the agreement](assets/exercise4/IN161_Exercise4_11.png)
-
-Keep (or adjust) the agreement name Quality Certificate-UserXXX, then click Save.
+In step 4, open the Name dropdown and select your trading partner IN161-UserXXX (replace XXX with your number), then click Next.
 
 ----
 
-![Activate the agreement](assets/exercise4/IN161_Exercise4_12.png)
+![Step 5 - Review and Open Draft](assets/exercise4/IN161_Exercise4_13.png)
 
-Click Activate, keep the Activation Mode on Default in the dialog, and click Activate. Wait until the Activation Status shows Active.
+In step 5, review your selections: template Quality Certificate, version Draft, creation mode Copy from Template, trading partner IN161-UserXXX. Click Open Draft.
 
 ----
 
-![Send a test message and monitor](assets/exercise4/IN161_Exercise4_13.png)
+![Name and Save the agreement](assets/exercise4/IN161_Exercise4_14.png)
 
-Verify that the copied agreement works. Go to Design -> Integrations and APIs -> IN161-UserXXX, open Artifacts, click More (...) -> Deploy to send a test message. Then go to Monitor -> B2B Scenarios -> Interchanges, click Go, and confirm you can see your outbound ANSI X12 863 interchange.
+The agreement draft opens. Keep (or adjust) the agreement name to Quality Certificate-UserXXX (replace XXX with your number), then click Save.
+
+----
+
+![Activate the agreement](assets/exercise4/IN161_Exercise4_15.png)
+
+Click Activate to deploy the agreement to the Partner Directory.
+
+----
+
+![Confirm activation](assets/exercise4/IN161_Exercise4_16.png)
+
+In the Activate Agreement dialog, keep the Activation Mode on Default and click Activate.
+
+----
+
+![Agreement active](assets/exercise4/IN161_Exercise4_17.png)
+
+The Activation Status now shows Active. Your copied agreement is live and ready.
+
+----
+
+![Navigate to Integrations and APIs](assets/exercise4/IN161_Exercise4_18.png)
+
+To verify that the copied agreement works, send a test message. In the left-hand navigation, go to Design -> Integrations and APIs.
+
+----
+
+![Open your package](assets/exercise4/IN161_Exercise4_19.png)
+
+Click your package IN161-UserXXX to open it.
+
+----
+
+![Open Artifacts tab](assets/exercise4/IN161_Exercise4_20.png)
+
+Click the Artifacts tab to see your iFlow.
+
+----
+
+![Deploy the iFlow](assets/exercise4/IN161_Exercise4_21.png)
+
+Click the three dots (...) next to send-Qualitydata_XXX and click Deploy.
+
+----
+
+![Confirm deployment](assets/exercise4/IN161_Exercise4_22.png)
+
+Confirm the deployment by clicking Deploy.
+
+After deployment, the simulated QM system sends a ZQMOUTTC IDoc. Go to Monitor -> B2B Scenarios -> Interchanges, filter by your Receiver Name IN161-UserXXX, click Go, and confirm you can see a new Completed outbound interchange.
 
 ----
 
