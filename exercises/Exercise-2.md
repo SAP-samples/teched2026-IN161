@@ -4,68 +4,90 @@
 In this exercise, you will copy an existing iFlow into your own package and configure it to simulate the sending S/4HANA QM system. When deployed, the iFlow pushes a ZQMOUTTC IDoc (the quality certificate) into TPM, which maps it to an ANSI X12 863 message and sends it to your trading partner.
 Replace XXX with your participant number wherever it appears.
 
-![IN161_024](assets/IN161_024.png)
+![Navigate to Integrations and APIs](assets/exercise2/IN161_Exercise2_1.png)
 
-Go to Design -> Integrations and APIs.
-
-----
-
-![IN161_025](assets/IN161_025.png)
-
-Create your own package by clicking Create.
+In the left-hand navigation, go to Design -> Integrations and APIs.
 
 ----
 
-![IN161_026](assets/IN161_026.png)
+![Create a new package](assets/exercise2/IN161_Exercise2_2.png)
 
-Name the package IN161-UserXXX (replace XXX with your number).
-
-----
-
-![IN161_027](assets/IN161_027.png)
-
-Navigate to the package IN161-SimulatorFlow.
+Click Create to create your own integration package.
 
 ----
 
-![IN161_028](assets/IN161_028.png)
+![Name the package](assets/exercise2/IN161_Exercise2_3.png)
 
-Open the Artifacts tab, click the three dots (...), then click Copy.
+Enter the package name IN161-UserXXX (replace XXX with your number), then click Save.
 
 ----
 
-![IN161_029](assets/IN161_029.png)
+![Package saved - go back](assets/exercise2/IN161_Exercise2_4.png)
+
+Your package has been saved. Click the breadcrumb link Integrations and APIs to return to the package list.
+
+----
+
+![Navigate to SimulatorFlow](assets/exercise2/IN161_Exercise2_5.png)
+
+In the package list, click IN161-SimulatorFlow to open it.
+
+----
+
+![Open Artifacts tab](assets/exercise2/IN161_Exercise2_6.png)
+
+Click the Artifacts tab to see the iFlow contained in the package.
+
+----
+
+![Copy the iFlow](assets/exercise2/IN161_Exercise2_7.png)
+
+Click the three dots (...) next to the iFlow send-Qualitydata, then click Copy.
+
+----
+
+![Rename and select target package](assets/exercise2/IN161_Exercise2_8.png)
 
 In the Copy dialog:
-- Rename the iFlow to IN161 - Send X12 863_UserXXX (replace XXX with your number).
-- Select your package IN161-UserXXX (replace XXX with your number).
-- Click Copy.
+- Append _XXX to the name so it reads send-Qualitydata_XXX (replace XXX with your number).
+- Click Select to choose the target package.
 
 ----
 
-![IN161_030](assets/IN161_030.png)
+![Select your package](assets/exercise2/IN161_Exercise2_9.png)
 
-To configure the copied iFlow, click Navigate to open the new iFlow.
-
-----
-
-![IN161_031](assets/IN161_031.png)
-
-Open Artifacts, click the three dots (...), then click Configure.
+In the Package Selection dialog, select IN161-UserXXX (replace XXX with your number).
 
 ----
 
-![IN161_032](assets/IN161_032.png)
+![Confirm the copy](assets/exercise2/IN161_Exercise2_10.png)
 
-In the Configure screen:
-- Set UserId to UserXXX (replace XXX with your number).
-- Click Save, then Deploy.
+The target package is now set to IN161-UserXXX. Click Copy to copy the iFlow to your package.
 
 ----
 
-![IN161_033](assets/IN161_033.png)
+![Navigate to your package](assets/exercise2/IN161_Exercise2_11.png)
 
-Confirm the deployment by clicking Yes.
+The copy was successful. Click Navigate to open your package IN161-UserXXX.
+
+----
+
+![Configure the iFlow](assets/exercise2/IN161_Exercise2_12.png)
+
+In your package, go to the Artifacts tab. Click the three dots (...) next to send-Qualitydata_XXX and click Configure.
+
+----
+
+![Set your user number and deploy](assets/exercise2/IN161_Exercise2_13.png)
+
+In the Configure dialog, set Usernumber to XXX (replace XXX with your number), then click Deploy.
+
+----
+
+![Confirm deployment](assets/exercise2/IN161_Exercise2_14.png)
+
+Check the Confirm transaction handling configuration checkbox, then click Deploy.
+
 After deployment, the simulated QM system sends a ZQMOUTTC IDoc. TPM maps it to an ANSI X12 863 message and sends it to your trading partner.
 
 ----

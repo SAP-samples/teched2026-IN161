@@ -11,71 +11,71 @@ The source and target Message Implementation Guidelines (MIGs) already exist in 
 
 As usual, replace XXX with your participant number wherever it appears.
 
-> Note: Screenshots for this exercise still need to be captured and uploaded (file names `assets/IN161_Exercise5_N.png`). The exact MIG/MAG names above are tenant-specific – please confirm them against your tenant.
+> Note: Screenshot for step 13 still needs to be captured and uploaded (file name `assets/exercise5/IN161_Exercise5_13.png`). The exact MIG/MAG names above are tenant-specific – please confirm them against your tenant.
 
 ----
 
-![Open MAGs](assets/IN161_Exercise5_1.png)
+![Open MAGs](assets/exercise5/IN161-5_01.png)
 
 In the left-hand navigation, go to Design -> MAGs.
 
 ----
 
-![Create MAG](assets/IN161_Exercise5_2.png)
+![Create MAG](assets/exercise5/IN161-5_02.png)
 
 Click Create -> MAG.
 
 ----
 
-![Select source MIG](assets/IN161_Exercise5_3.png)
+![Select source MIG](assets/exercise5/IN161-5_03.png)
 
 Select the source MIG: _QM-863 SAP IDoc ZQMOUTTC - Source_.
 
 ----
 
-![Select target MIG](assets/IN161_Exercise5_4.png)
+![Select target MIG](assets/exercise5/IN161-5_04.png)
 
 Select the target MIG: _QM-863 ASC X12 004010 863 - Target_.
 
 ----
 
-![Name the MAG](assets/IN161_Exercise5_5.png)
+![Name the MAG](assets/exercise5/IN161-5_05.png)
 
 Enter the MAG name using the following naming scheme: _QM-863 UserXXX ZQMOUTTC-to-ASC X12 004010 863_ (replace XXX with your number), then click Create.
 
 ----
 
-![Request a proposal](assets/IN161_Exercise5_6.png)
+![Request a proposal](assets/exercise5/IN161-5_06.png)
 
 Your new MAG opens in the mapping editor. It is still empty – no fields are mapped yet. To avoid mapping everything manually, request a proposal from the knowledge base: click Proposal.
 
 ----
 
-![Select Best Proposal](assets/IN161_Exercise5_7.png)
+![Select Best Proposal](assets/exercise5/IN161-5_07.png)
 
 To automatically apply the proposal with the highest confidence, click Select Best Proposal.
 
 ----
 
-![Use Only Valid Mappings](assets/IN161_Exercise5_8.png)
+![Use Only Valid Mappings](assets/exercise5/IN161-5_08.png)
 
 Because the knowledge base can include mapping functions that may not work in your context, select Use Only Valid Mappings to exclude non-working snippets.
 
 ----
 
-![Review and Save](assets/IN161_Exercise5_9.png)
+![Review and Save](assets/exercise5/IN161-5_09.png)
 
 Review the proposed mappings. The knowledge base maps the quality-relevant fields (for example, inspection/test values and their units) from the ZQMOUTTC structure to the corresponding ANSI X12 863 segments. Then click Save.
 
 ----
 
-![Open your agreement](assets/IN161_Exercise5_10.png)
+![Open your agreement](assets/exercise5/IN161-5_10.png)
 
 Now use your new MAG in your agreement. Go to B2B Scenarios -> Agreements and open your agreement Quality Certificate-UserXXX. It should be Active from the previous exercise.
 
 ----
 
-![Replace the mapping with your MAG](assets/IN161_Exercise5_11.png)
+![Replace the mapping with your MAG](assets/exercise5/IN161-5_11.png)
 
 Switch to the B2B Scenarios tab and set the B2B Scenario to Edit mode. In the QualityCertificate_Outbound transaction flow:
 - Click the Mapping box.
@@ -84,13 +84,13 @@ Switch to the B2B Scenarios tab and set the B2B Scenario to Edit mode. In the Qu
 
 ----
 
-![Save and Update the agreement](assets/IN161_Exercise5_12.png)
+![Save and Update the agreement](assets/exercise5/IN161-5_12.png)
 
 Click Save on the agreement, then click Update to write the changes to the Partner Directory. Wait until the agreement returns to Active.
 
 ----
 
-![Send a test message and verify](assets/IN161_Exercise5_13.png)
+![Send a test message and verify](assets/exercise5/IN161_Exercise5_13.png)
 
 Send a test message: go to Design -> Integrations and APIs -> IN161-UserXXX, open Artifacts, click More (...) -> Deploy. Then go to Monitor -> B2B Scenarios -> Interchanges, click Go, and open your outbound interchange to confirm the ANSI X12 863 message was produced by your own MAG.
 
