@@ -23,43 +23,43 @@ In the left-hand navigation, go to Design -> MAGs.
 
 ![Create MAG](assets/exercise5/IN161-5_02.png)
 
-Click Create -> MAG.
+Click Create -> Graphical MAG:Standard.
 
 ----
 
 ![Select source MIG](assets/exercise5/IN161-5_03.png)
 
-Select the source MIG: _QM-863 SAP IDoc ZQMOUTTC - Source_.
+Select the source MIG: [IN161] Ironvale Steel Corp. - IDoc - Source
 
 ----
 
 ![Select target MIG](assets/exercise5/IN161-5_04.png)
 
-Select the target MIG: _QM-863 ASC X12 004010 863 - Target_.
+Select the target MIG: [IN161] Heartland Metals Supply Co. - 863 - Target
 
 ----
 
 ![Name the MAG](assets/exercise5/IN161-5_05.png)
 
-Enter the MAG name using the following naming scheme: _QM-863 UserXXX ZQMOUTTC-to-ASC X12 004010 863_ (replace XXX with your number), then click Create.
+Enter the MAG name using the following naming scheme: Mapping [IN161]  UserXXX IDoc - Source to 863 - Target (replace XXX with your number), then click Create.
 
 ----
 
 ![Request a proposal](assets/exercise5/IN161-5_06.png)
 
-Your new MAG opens in the mapping editor. It is still empty – no fields are mapped yet. To avoid mapping everything manually, request a proposal from the knowledge base: click Proposal.
+Your new MAG opens in the mapping editor. It is still empty – no fields are mapped yet. To accerleate the mapping of the source to target elements and avoid mapping everything manually, request a proposal from the knowledge base: click "Propose" in the right upper corner beside "Simulate" button.
 
 ----
 
 ![Select Best Proposal](assets/exercise5/IN161-5_07.png)
 
-To automatically apply the proposal with the highest confidence, click Select Best Proposal.
+To automatically apply the proposal with the highest confidence, click "Select Best Proposal" from the lower part of the screen in the Details section beside Validate button.
 
 ----
 
-![Use Only Valid Mappings](assets/exercise5/IN161-5_08.png)
+![ Use Only Valid Mappings](assets/exercise5/IN161-5_08.png)
 
-Because the knowledge base can include mapping functions that may not work in your context, select Use Only Valid Mappings to exclude non-working snippets.
+Because the knowledge base can include mapping functions that may not work in your context, select "Validate" buttonin the Details section to ensure to use Only Valid Mapping elements/function snippets.
 
 ----
 
@@ -71,7 +71,7 @@ Review the proposed mappings. The knowledge base maps the quality-relevant field
 
 ![Open your agreement](assets/exercise5/IN161-5_10.png)
 
-Now use your new MAG in your agreement. Go to B2B Scenarios -> Agreements and open your agreement Quality Certificate-UserXXX. It should be Active from the previous exercise.
+Now use your new MAG in your agreement. Go to B2B Scenarios in the left Menu panel under Design and go to -> Agreements and open your agreement Quality Certificate-UserXXX. It should be Active from the previous exercise.
 
 ----
 
@@ -80,7 +80,7 @@ Now use your new MAG in your agreement. Go to B2B Scenarios -> Agreements and op
 Switch to the B2B Scenarios tab and set the B2B Scenario to Edit mode. In the QualityCertificate_Outbound transaction flow:
 - Click the Mapping box.
 - In the details pane, click the Mapping field to open the selection dialog.
-- Search for your MAG _QM-863 UserXXX ZQMOUTTC-to-ASC X12 004010 863_ and select it, then click Choose.
+- Search for your MAG _Mapping [IN161] UserXXX Idoc - Source to 863 - Target and select it, then click Choose. In case you do not find your MAG hit the "Reset" button to see all the available MAGs from Integration Advisor! 
 
 ----
 
