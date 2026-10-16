@@ -1,9 +1,9 @@
 # IN161 - Exercise 6 - Enhance the mapping with Joule
 
 ## Overview
-Your MAG from Exercise 5 already covers the fields that the knowledge base could propose. In real life, however, some target fields in the ANSI X12 863 need transformations that a plain field-to-field proposal cannot provide – especially in the steel industry, where test values, units, and material grades often have to be reformatted or translated to the partner's conventions.
+Your MAG from Exercise 5 covers the mandatory field mappings like date conversions, one-to-one mappings fronm the knowledge base proposal. Additionally to the proposed mapping elements there could be more complex conditional mappings with functions require adjustments. In the example of this ANSI X12 863 message we need transformations with conditional rules to consider test values, units, and material grades need to be reformatted or translated to the partner's conventions.
 
-In this exercise you will use **Joule**, the generative-AI copilot, to create such **mapping functions** from a simple natural-language description, instead of writing the logic by hand.
+ In this excercise this applies to finding the  corresponding source and target nodes that are semantically equivalent and creating complex functions if  the values cannot be copied from the source side to the target side. To accelerate this, you will use **Joule**, the generative-AI copilot, to create such **mapping functions** from a simple natural-language description, instead of writing the logic by hand.
 
 Typical examples in our Report of Test Results scenario:
 - Combine a measured value with its unit of measure into one formatted string (for example, `355 MPa`).
@@ -16,14 +16,23 @@ As usual, replace XXX with your participant number wherever it appears.
 > Note: Joule assistance in Integration Advisor must be enabled for the tenant and may depend on your data center region. If you do not see the Joule option, ask your trainer.
 
 ----
+Several more straight forward mapping functions transform the input from one node into a specific value of one target node. The logic of some of the functions is recognizable.
+For example, truncate, split or concatenate the input string's first or second part and write the remaining part into the output. You’ll find the list of the mapping elements with such mapping functions below.  
 
-![IN161-6_01](assets/exercise6/IN161-6_1.png)
-In the left-hand navigation, go to Design -> MAGs and open your MAG from the previous exercise: _QM-863 UserXXX ZQMOUTTC-to-ASC X12 004010 863_ (replace XXX with your number).
+
+![IN161-6_01](assets/exercise5/IN161-6_01.png)
+In the left-hand navigation, go to Design -> MAGs and open your MAG from the previous exercise: _QMapping [IN161]  UserXXX IDoc - Source to 863 - Target_ (replace XXX with your number).
 
 ----
 
-![IN161-6_02](assets/exercise6/IN161-6_2.png)
-In the mapping editor, locate the target field in the X12 863 that needs a transformation (for example, the field that should contain the measured test value together with its unit). Select the field to open its mapping details.
+![IN161-6_02](assets/exercise6/IN161-6_02.png)
+In the mapping editor, locate the target field in the X12 863 that needs a transformation Element **352** _[/Interchange/FunctionalGroup/863/NTE/352]_ 
+(for example, the field that should hold a Note/Special Instruction). Select the corresponding Source element by clicking on it from the IDoc structure which would be **NTE** _[/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE]_ field to see the element details. 
+
+| Mapping Element | Prompt | Expected output  |
+|-----------------|--------|------------------|
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 1st to the 80th character.   | <xsl:sequence select="substring=$nodes_in/NTE,1,80"/>  |
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE[1]/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 81st to the 140th character.  | <xsl:sequence select="substring=$nodes_in/NTE,81,60"/> |
 
 ----
 
