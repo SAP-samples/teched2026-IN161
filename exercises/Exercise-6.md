@@ -31,8 +31,23 @@ In the mapping editor, locate the target field in the X12 863 that needs a trans
 
 | Mapping Element | Prompt | Expected output  |
 |-----------------|--------|------------------|
-| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 1st to the 80th character.   | <xsl:sequence select="substring=$nodes_in/NTE,1,80"/>  |
-| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE[1]/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 81st to the 140th character.  | <xsl:sequence select="substring=$nodes_in/NTE,81,60"/> |
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 1st to the 80th character.   | <xsl:sequence select="substring($nodes_in/NTE, 1, 80)"/>  |
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE[1]/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 81st to the 140th character.  | <xsl:sequence select="substring($nodes_in/NTE, 81, 60)" |
+
+----
+**Set Conditions at a Leaf Node**  
+You can set conditions at a group node or leaf node. A condition is used to write a node into the target  
+payload under specific circumstances expressed by the condition. The leaf node condition feature especially has the advantage that you must put all the condition complexity into the mapping function. This is separated and makes the mapping function much more straigthforward.
+1) If you need a condition at  the leaf node, follow the  following steps:
+    a) Check which leaf nodes you need a condition for. We prepared ones in the below table.
+    b) Click on the chosen target node, **93[2]** _[/Interchange/FunctionalGroup/863/N1 [98 = SH]/N2/93 [2]_] because this should be generated, if the input string from node **NAME1**_/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/NAME1_ is longer than 35 characters, these remainaing characters will be written into the leaf node **92[2]**. 
+![IN161-6_03](assets/exercise6/IN161-6_02.png)    
+    c) Go the mapping list.
+    d) Enable the "Condition" by selecting the empty checkbox
+    e) The Tab "Condition" is visible, open it any enter the specific condition. 
+        _"boolean(string-length($nodes_in/NAME1[1]) > 35)"_ 
+    f) Enable this as shared condition. Enter A name "Name2" and a Description "Long Name Condition". 
+       You will see that in the Shared Code Tab beside "Global Parameters" you have now 1 entry. You can reuse this condition on the second instance of the node 93 of N2 in the group of N1 [98 = SO]. 
 
 ----
 
