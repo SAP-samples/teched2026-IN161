@@ -39,15 +39,28 @@ In the mapping editor, locate the target field in the X12 863 that needs a trans
 You can set conditions at a group node or leaf node. A condition is used to write a node into the target  
 payload under specific circumstances expressed by the condition. The leaf node condition feature especially has the advantage that you must put all the condition complexity into the mapping function. This is separated and makes the mapping function much more straigthforward.
 1) If you need a condition at  the leaf node, follow the  following steps:
-    a) Check which leaf nodes you need a condition for. We prepared ones in the below table.
-    b) Click on the chosen target node, **93[2]** _[/Interchange/FunctionalGroup/863/N1 [98 = SH]/N2/93 [2]_] because this should be generated, if the input string from node **NAME1**_/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/NAME1_ is longer than 35 characters, these remainaing characters will be written into the leaf node **92[2]**. 
-![IN161-6_03](assets/exercise6/IN161-6_02.png)    
-    c) Go the mapping list.
-    d) Enable the "Condition" by selecting the empty checkbox
-    e) The Tab "Condition" is visible, open it any enter the specific condition. 
-        _"boolean(string-length($nodes_in/NAME1[1]) > 35)"_ 
-    f) Enable this as shared condition. Enter A name "Name2" and a Description "Long Name Condition". 
+2) Check which leaf nodes you need a condition for. We prepared ones below.
+3) Click on the chosen target node, **93[2]** _[/Interchange/FunctionalGroup/863/N1 [98 = SH]/N2/93 [2]_] because this should be generated, if the input string from node **NAME1**_/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/NAME1_ is longer than 35 characters, these remainaing characters will be written into the leaf node **92[2]**. 
+![IN161-6_03](assets/exercise6/IN161-6_03.png)   
+
+4) Go the mapping list.
+5) Enable the "Condition" by selecting the empty checkbox
+6) The Tab "Condition" is visible, open it and enter the specific condition. 
+        _["boolean(string-length($nodes_in/NAME1[1]) > 35)"]_ 
+![IN161-6_04](assets/exercise6/IN161-6_04.png)
+
+7) Enable this as shared condition. Enter A name "Name2" and a Description "Long Name Condition". 
        You will see that in the Shared Code Tab beside "Global Parameters" you have now 1 entry. You can reuse this condition on the second instance of the node 93 of N2 in the group of N1 [98 = SO]. 
+![IN161-6_04](assets/exercise6/IN161-6_05.png)
+
+8) Navigate to the element **93[2]** under the Element **N2** of **N1[98=SO]** _[/Interchange/FunctionalGroup/863/N1 [98 = SO]/N2/93 [2]]_ and assign the shared Code Condition by enabling again the Condition from the Mapping List, navigate to the Condition Tab and Select "Assign Shared Code" Select "Name2" and Save your chnages. 
+![IN161-6_04](assets/exercise6/IN161-6_06.png)
+
+9) Select Simulate option to verify if your changes saved properly and get results in the Simulation Data Tab. 
+(In case you ran the simulation before, rerun the simulation again)
+![IN161-6_04](assets/exercise6/IN161-6_07.png)
+![IN161-6_04](assets/exercise6/IN161-6_08.png)
+
 
 ----
 
