@@ -54,7 +54,7 @@ More information around the identifiers can be found here: [Understanding Identi
 ![Create SAP IDoc identifier](assets/exercise1/IN161_Exercise1_7.png)
 
 Create a second identifier that will be used in the (simulated) S/4HANA QM system. Use the exact casing shown:
-- Identification: O-UserXXX (this is the letter O, not zero)
+- Identification: O123456-UserXXX (this starts with the letter O, not zero)
 - Alias: TP-SAP-IDoc-Id
 - Type System: SAP S/4HANA On Premise IDoc
 - Scheme: N/A
@@ -208,7 +208,12 @@ The agreement draft opens. Keep (or adjust) the agreement name Quality Certifica
 
 ![Activate the agreement](assets/exercise1/IN161_Exercise1_27.png)
 
-The agreement created in "by-reference" mode shows a one-way, outbound business transaction for sending the Report of Test Results (Mill Test Report) to your trading partner. At this stage it uses the mapping that was **migrated from PI/PO** and is already available in the tenant, so you can send a message right away – without having built any mapping yourself yet.
+The agreement created in "by-reference" mode shows a one-way, outbound business transaction for sending the Report of Test Results (Mill Test Report) to your trading partner. At this stage it uses an existing mapping that is already available in the tenant, so you can send a message right away – without having built any mapping yourself yet.
+
+In our example this is a mapping that was **migrated from SAP PI/PO** – a very common starting point, because many customers already run working message mappings there and reuse them when they move B2B to Integration Suite. It does not have to come from PI/PO, though: it could just as well be a plain **XSLT** exported from any other system. The point is simply that *some* existing mapping is reused here as-is.
+
+In Exercise 5 you will then create a **Mapping Guideline (MAG)** – the native mapping entity of the SAP Integration Advisor – and use it to **replace** this old (migrated) mapping with one you own and can evolve yourself.
+
 Let's see this in action! Click Activate.
 
 ----
