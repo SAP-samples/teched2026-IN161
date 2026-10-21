@@ -3,7 +3,9 @@
 ## Overview
 In this exercise you will create the Trading Partner specific Target MIG.  
 Prerequisite: Payload _XYZ X12 863.edi_ (download from the Payload Folder)  
-Goto Message Implmenentation Guidelines Overview screen, Select in the Create button dropdown the "Create by Payload" option. ![IN161-7_01](assets/exercise7/IN161-7_01.png) 
+Goto Message Implmenentation Guidelines Overview screen, Select in the Create button dropdown the "Create by Payload" option.
+![IN161-7_01](assets/exercise7/IN161-7_01.png) 
+
 Drop in or select the prepared Payload and navigate through the guided steps by confirming the proposed selection for the X12 Type System, 863 Message, with the selected Version of 004010 . 
 ![IN161-7_02](assets/exercise7/IN161-7_02.png)
 ![IN161-7_03](assets/exercise7/IN161-7_03.png) 
@@ -38,26 +40,26 @@ Navigate to the Element **BTR** select the two boxes action and select the propo
  ![IN161-7_11](assets/exercise7/IN161-7_12.png) 
 
 Navigate to the Element **PID** select the two boxes action and select the proposed Qualification Value _F_
- ![IN161-7_12](assets/exercise7/IN161-7_12.png) 
+ ![IN161-7_12](assets/exercise7/IN161-7_13.png) 
 
 Navigate to the Element **N1** select the two boxes action and select the proposed Qualification Value _ST_
- ![IN161-7_12](assets/exercise7/IN161-7_13.png)
+ ![IN161-7_12](assets/exercise7/IN161-7_14.png)
 
 A qualified Element of **N1** was created with the qualified value _ST_. We need to have multiple **N1** Segments as such we need to qualify 2 additional elements with the qualified value _SE_ For the Selling Party and _BY_ for the Buyer Party. This qualification enables a direct mapping of the source elements from the IDoc structure to the Target structure without any additional functional mapping steps. 
 To qualify another Enumreation Value for the **N1** Segment we will duplicate the Node by selecting the qualified **N1** right Mouse click and select from the action _"Duplicate Qualified Node"_ with the value _"SE"_ as indicated on the screenshot. 
-![IN161-7_12](assets/exercise7/IN161-7_14.png)
 ![IN161-7_12](assets/exercise7/IN161-7_15.png)
-
-We do the same for the newly created qualified **N1** node as before as such duplicate the Node by selecting the qualified **N1** right Mouse click and select from the action _"Duplicate Qualified Node"_ and select the _"BY"_
 ![IN161-7_12](assets/exercise7/IN161-7_16.png)
 
-Next navigate to the Element **DTM** right mouse click and select _"Qualify Node..."_ 
+We do the same for the newly created qualified **N1** node as before as such duplicate the Node by selecting the qualified **N1** right Mouse click and select from the action _"Duplicate Qualified Node"_ and select the _"BY"_
 ![IN161-7_12](assets/exercise7/IN161-7_17.png)
+
+Next navigate to the Element **DTM** right mouse click and select _"Qualify Node..."_ 
+![IN161-7_12](assets/exercise7/IN161-7_18.png)
 
 Select the Value _"050"_ from the Enumeration lsit and click **"Create"** to qualify the **DTM** segment. 
 
 Once you verified the actions you can filter out the selected Elements. Navigate to the Filter of the First Column **Node** and set a filter to _"Show Selected Nodes"_
-![IN161-7_12](assets/exercise7/IN161-7_18.png)
+![IN161-7_12](assets/exercise7/IN161-7_19.png)
 
 Save your changes! 
 
