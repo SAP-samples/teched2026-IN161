@@ -1,122 +1,102 @@
-# IN161 - Exercise 6 - Enhance the mapping with Joule
+# IN161 - Exercise 6 - Create your own Mapping Guideline (MAG) using proposals
 
 ## Overview
-Your MAG from Exercise 5 covers the mandatory field mappings like date conversions, one-to-one mappings fronm the knowledge base proposal. Additionally to the proposed mapping elements there could be more complex conditional mappings with functions require adjustments. In the example of this ANSI X12 863 message we need transformations with conditional rules to consider test values, units, and material grades need to be reformatted or translated to the partner's conventions.
+Until now, your agreement has used the mapping that was **migrated from PI/PO** and was already available in the tenant. That is the fastest way to go live, but you often want to own and evolve the mapping yourself in Integration Advisor.
 
- In this excercise this applies to finding the  corresponding source and target nodes that are semantically equivalent and creating complex functions if  the values cannot be copied from the source side to the target side. To accelerate this, you will use **Joule**, the generative-AI copilot, to create such **mapping functions** from a simple natural-language description, instead of writing the logic by hand.
+In this exercise you will create your **own Mapping Guideline (MAG)** that maps the SAP IDoc **ZQMOUTTC** (quality certificate) to **ANSI X12 863** (Report of Test Results, version 004010). Instead of mapping every field by hand, you will let the Integration Advisor **knowledge base propose** the mapping for you. Finally, you will plug your new MAG into your Copy agreement, send a message, and verify the result in the B2B Monitor.
 
-Typical examples in our Report of Test Results scenario:
-- Combine a measured value with its unit of measure into one formatted string (for example, `355 MPa`).
-- Convert an internal unit of measure to the code the partner expects.
-- Map an internal steel-grade / material code to the trading partner's code list.
-- Derive a pass/fail indicator by comparing a measured value against its specification limits.
+The source and target Message Implementation Guidelines (MIGs) already exist in the tenant:
+- Source MIG: _[IN161] Ironvale Steel Corp. - IDoc - Source_
+- Target MIG: _[IN161] Heartland Metals Supply Co. - 863 - Target_
 
 As usual, replace XXX with your participant number wherever it appears.
 
-> Note: Joule assistance in Integration Advisor must be enabled for the tenant and may depend on your data center region. If you do not see the Joule option, ask your trainer.
-
-----
-Several more straight forward mapping functions transform the input from one node into a specific value of one target node. The logic of some of the functions is recognizable.
-For example, truncate, split or concatenate the input string's first or second part and write the remaining part into the output. You’ll find the list of the mapping elements with such mapping functions below.  
-
-
-![IN161-6_01](assets/exercise5/IN161-6_01.png)
-In the left-hand navigation, go to Design -> MAGs and open your MAG from the previous exercise: _QMapping [IN161]  UserXXX IDoc - Source to 863 - Target_ (replace XXX with your number).
+> Note: The exact MIG/MAG names above are tenant-specific – please verify them against your tenant.
 
 ----
 
-![IN161-6_02](assets/exercise6/IN161-6_02.png)
-In the mapping editor, locate the target field in the X12 863 that needs a transformation Element **352** _[/Interchange/FunctionalGroup/863/NTE/352]_ 
-(for example, the field that should hold a Note/Special Instruction). Select the corresponding Source element by clicking on it from the IDoc structure which would be **NTE** _[/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE]_ field to see the element details. 
+![Open MAGs](assets/exercise6/IN161-5_01.png)
 
-| Mapping Element | Prompt | Expected output  |
-|-----------------|--------|------------------|
-| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 1st to the 80th character.   | <xsl:sequence select="substring($nodes_in/NTE, 1, 80)"/>  |
-| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE[1]/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 81st to the 140th character.  | <xsl:sequence select="substring($nodes_in/NTE, 81, 60)" |
-| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/STREET  to /Interchange/FunctionalGroup/863/N1 [98 = SH]/N3/166| Create an XPath 2.0 that truncates the house number from the input $nodes_in/STREET if the house number is at the beginning and is just based on numbers. 
- | <xsl:sequence select="replace($nodes_in/STREET,'^\d+\s',´´) 
-" |
-
-----
-**Set Conditions at a Leaf Node**  
-You can set conditions at a group node or leaf node. A condition is used to write a node into the target  
-payload under specific circumstances expressed by the condition. The leaf node condition feature especially has the advantage that you must put all the condition complexity into the mapping function. This is separated and makes the mapping function much more straigthforward.
-1) If you need a condition at  the leaf node, follow the  following steps:
-2) Check which leaf nodes you need a condition for. We prepared ones below.
-3) Click on the chosen target node, **93[2]** _[/Interchange/FunctionalGroup/863/N1 [98 = SH]/N2/93 [2]_] because this should be generated, if the input string from node **NAME1**_/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/NAME1_ is longer than 35 characters, these remainaing characters will be written into the leaf node **93[2]**. 
-![IN161-6_03](assets/exercise6/IN161-6_03.png)   
-
-4) Go the mapping list.
-5) Enable the "Condition" by selecting the empty checkbox
-6) The Tab "Condition" is visible, open it and enter the specific condition. 
-        _["boolean(string-length($nodes_in/NAME1[1]) > 35)"]_ 
-![IN161-6_04](assets/exercise6/IN161-6_04.png)
-
-7) Enable this as shared condition. Enter A name "Name2" and a Description "Long Name Condition". 
-       You will see that in the Shared Code Tab beside "Global Parameters" you have now 1 entry. You can reuse this condition on the second instance of the node **93** of **N2** in the group of **N1 [98 = SO]**. 
-![IN161-6_04](assets/exercise6/IN161-6_05.png)
-
-8) Navigate to the element **93[2]** under the Element **N2** of **N1[98=SO]** _[/Interchange/FunctionalGroup/863/N1 [98 = SO]/N2/93 [2]]_ and assign the shared Code Condition by enabling again the Condition from the Mapping List, navigate to the Condition Tab and Select "Assign Shared Code" Select "Name2" and Save your chnages. 
-![IN161-6_04](assets/exercise6/IN161-6_06.png)
-
-9) Select Simulate option to verify if your changes saved properly and get results in the Simulation Data Tab. 
-(In case you ran the simulation before, rerun the simulation again)
-![IN161-6_04](assets/exercise6/IN161-6_07.png)
-![IN161-6_04](assets/exercise6/IN161-6_08.png)
-
+In the left-hand navigation, go to Design -> MAGs.
 
 ----
 
-![IN161-6_03](assets/exercise6/IN161-6_3.png)
-Open _Joule_ from the mapping editor.
+![Create MAG](assets/exercise6/IN161-5_02.png)
+
+Click Create -> Graphical MAG:Standard.
 
 ----
 
-![IN161-6_04](assets/exercise6/IN161-6_4.png)
-Describe the transformation you need in plain language, for example:
+![Select source MIG](assets/exercise6/IN161-5_03.png)
 
-> "Concatenate the measured value and its unit of measure, separated by a space, and return the result as a single string."
-
-Then let Joule generate the mapping function.
+Select the source MIG: [IN161] Ironvale Steel Corp. - IDoc - Source
 
 ----
 
-![IN161-6_05](assets/exercise6/IN161-6_5.png)
-Review the mapping function that Joule proposes. Check that it uses the correct source fields and produces the expected output. If it is not quite right, refine your description and let Joule regenerate it.
+![Select target MIG](assets/exercise6/IN161-5_04.png)
+
+Select the target MIG: [IN161] Heartland Metals Supply Co. - 863 - Target
 
 ----
 
-![IN161-6_06](assets/exercise6/IN161-6_6.png)
-Apply the generated function to the target field, then test it with example values to confirm the output is correct.
+![Name the MAG](assets/exercise6/IN161-5_05.png)
+
+Enter the MAG name using the following naming scheme: Mapping [IN161]  UserXXX IDoc - Source to 863 - Target (replace XXX with your number), then click Create.
 
 ----
 
-![IN161-6_07](assets/exercise6/IN161-6_7.png)
-Optionally, repeat the process for another transformation – for example, ask Joule to map an internal steel-grade code to the trading partner's code, or to convert the unit of measure.
+![Request a proposal](assets/exercise6/IN161-5_06.png)
+
+Your new MAG opens in the mapping editor. It is still empty – no fields are mapped yet. To accelerate the mapping of the source to target elements and avoid mapping everything manually, request a proposal from the knowledge base: click "Propose" in the right upper corner beside "Simulate" button.
 
 ----
 
-![IN161-6_08](assets/exercise6/IN161-6_8.png)
-When you are satisfied with the result, click _Save_ to store your MAG.
+![Select Best Proposal](assets/exercise6/IN161-5_07.png)
+
+To automatically apply the proposal with the highest confidence, click "Select Best Proposal" from the lower part of the screen in the Details section beside Validate button.
 
 ----
 
-![IN161-6_09](assets/exercise6/IN161-6_9.png)
-Your MAG is already assigned to your Quality Certificate-UserXXX agreement from Exercise 5, so you only need to make the new version effective: open the agreement, click _Save_ and then _Update_ to write the changes to the Partner Directory. Wait until the agreement returns to _Active_.
+![ Use Only Valid Mappings](assets/exercise6/IN161-5_08.png)
+
+Because the knowledge base can include mapping functions that may not work in your context, select "Validate" button in the Details section to ensure to use only valid mapping elements/function snippets.
 
 ----
 
-![IN161-6_10](assets/exercise6/IN161-6_10.png)
-Send a test message: go to Design -> Integrations and APIs -> IN161-UserXXX, open _Artifacts_, and click _More_ (...) -> _Deploy_.
+![Review and Save](assets/exercise6/IN161-5_09.png)
+
+Review the proposed mappings. The knowledge base maps the quality-relevant fields (for example, inspection/test values and their units) from the ZQMOUTTC structure to the corresponding ANSI X12 863 segments. Then click Save.
 
 ----
 
-![IN161-6_11](assets/exercise6/IN161-6_11.png)
-Go to Monitor -> B2B Scenarios -> Interchanges, click _Go_, and open your outbound interchange. In the generated ANSI X12 863 message, confirm that the fields handled by your Joule-generated mapping functions now contain the expected, transformed values.
+![Open your agreement](assets/exercise6/IN161-5_10.png)
+
+Now use your new MAG in your agreement. Go to B2B Scenarios in the left-hand navigation under Design and go to -> Agreements and open your agreement Quality Certificate-UserXXX. It should be Active from the previous exercise.
 
 ----
 
-Continue with: [Exercise 7 - (Bonus) Work with the functional acknowledgment](Exercise-7.md)
+![Replace the mapping with your MAG](assets/exercise6/IN161-5_11.png)
+
+Switch to the B2B Scenarios tab and set the B2B Scenario to Edit mode. In the QualityCertificate_Outbound transaction flow:
+- Click the Mapping box.
+- In the details pane, click the Mapping field to open the selection dialog.
+- Search for your MAG _Mapping [IN161] UserXXX Idoc - Source to 863 - Target and select it, then click Choose. In case you do not find your MAG hit the "Reset" button to see all the available MAGs from Integration Advisor! 
+
+----
+
+![Save and Update the agreement](assets/exercise6/IN161-5_12.png)
+
+Click Save on the agreement, then click Update to write the changes to the Partner Directory. Wait until the agreement returns to Active.
+
+----
+
+![Send a test message and verify](assets/exercise6/IN161-5_13.png)
+
+Send a test message: go to Design -> Integrations and APIs -> IN161-UserXXX, open Artifacts, click the three dots(...) -> Deploy. Then go to Monitor -> B2B Scenarios -> Interchanges, click Go, and open your outbound interchange to confirm the ANSI X12 863 message was produced by your own MAG.
+
+----
+
+Continue with: [Exercise 7 - Enhance the mapping with Joule](Exercise-7.md)
 
 Please give us feedback for this session **IN161**
 

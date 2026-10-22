@@ -1,69 +1,122 @@
-# IN161 - Exercise 5 — (Optional) Create Target Message Implementation Guideline(MIG)
+# IN161 - Exercise 7 - Enhance the mapping with Joule
 
 ## Overview
-In this exercise you will create the Trading Partner specific Target MIG.  
-Prerequisite: Payload _XYZ X12 863.edi_ (download from the Payload Folder)  
-Goto Message Implmenentation Guidelines Overview screen, Select in the Create button dropdown the "Create by Payload" option.
-![IN161-7_01](assets/exercise7/IN161-7_01.png) 
+Your MAG from Exercise 6 covers the mandatory field mappings like date conversions, one-to-one mappings fronm the knowledge base proposal. Additionally to the proposed mapping elements there could be more complex conditional mappings with functions require adjustments. In the example of this ANSI X12 863 message we need transformations with conditional rules to consider test values, units, and material grades need to be reformatted or translated to the partner's conventions.
 
-Drop in or select the prepared Payload and navigate through the guided steps by confirming the proposed selection for the X12 Type System, 863 Message, with the selected Version of 004010 . 
-![IN161-7_02](assets/exercise7/IN161-7_02.png)
-![IN161-7_03](assets/exercise7/IN161-7_03.png) 
-![IN161-7_04](assets/exercise7/IN161-7_04.png)
+ In this excercise this applies to finding the  corresponding source and target nodes that are semantically equivalent and creating complex functions if  the values cannot be copied from the source side to the target side. To accelerate this, you will use **Joule**, the generative-AI copilot, to create such **mapping functions** from a simple natural-language description, instead of writing the logic by hand.
 
-Select Envelope, and navigate to the "Sample Payload" selection Step.
-![IN161-7_05](assets/exercise7/IN161-7_05.png) 
+Typical examples in our Report of Test Results scenario:
+- Combine a measured value with its unit of measure into one formatted string (for example, `355 MPa`).
+- Convert an internal unit of measure to the code the partner expects.
+- Map an internal steel-grade / material code to the trading partner's code list.
+- Derive a pass/fail indicator by comparing a measured value against its specification limits.
 
-Select all offered options inlcuding "Set Example Values" as indicated by the Screenshot
-![IN161-7_06](assets/exercise7/IN161-7_06.png) 
+As usual, replace XXX with your participant number wherever it appears.
 
-Go to the Qualification step and select the nodes as indicated by the Screenshot
-![IN161-7_07](assets/exercise7/IN161-7_07.png) 
+> Note: Joule assistance in Integration Advisor must be enabled for the tenant and may depend on your data center region. If you do not see the Joule option, ask your trainer.
 
-Hit the Create button on the lower right corner. The MIG Creation Dialog opens where you need to specify the Name and Direction of the MIG as well the Business Context Information. 
-Specify: 
- 	MIG Name: "UserXXX - 863 - Target MIG (replace XXX with your number) 
- 	Direction : Out 
-Own Business Context: Select Country Germany ( 1 would be enough...) 
-![IN161-7_08](assets/exercise7/IN161-7_08.png) 
+----
+Several more straight forward mapping functions transform the input from one node into a specific value of one target node. The logic of some of the functions is recognizable.
+For example, truncate, split or concatenate the input string's first or second part and write the remaining part into the output. You’ll find the list of the mapping elements with such mapping functions below.  
 
 
-Navigate the the Second Tab called "Structure" and select the "Get Proposal" button from the right upper corner. 
- ![IN161-7_09](assets/exercise7/IN161-7_09.png) 
+![IN161-6_01](assets/exercise7/IN161-6_01.png)
+In the left-hand navigation, go to Design -> MAGs and open your MAG from the previous exercise: _QMapping [IN161]  UserXXX IDoc - Source to 863 - Target_ (replace XXX with your number).
 
-In the Structure you will see a new Column called "Confidence" with blue bars and beside selected Nodes like **ST** under **863** selection button 
-Navigate to the node **ST** select the two boxes action and select the proposed Qualification Value _863_ to qualify the **ST** Segement from the Element **143** _Transaction Set Identifier Code_. This qualification is constant value which will be automatically taken over at the Mapping Excercise.
-  ![IN161-7_10](assets/exercise7/IN161-7_10.png)
-   ![IN161-7_11](assets/exercise7/IN161-7_11.png)  
+----
 
-Navigate to the Element **BTR** select the two boxes action and select the proposed Qualification Value _00_
- ![IN161-7_11](assets/exercise7/IN161-7_12.png) 
+![IN161-6_02](assets/exercise7/IN161-6_02.png)
+In the mapping editor, locate the target field in the X12 863 that needs a transformation Element **352** _[/Interchange/FunctionalGroup/863/NTE/352]_ 
+(for example, the field that should hold a Note/Special Instruction). Select the corresponding Source element by clicking on it from the IDoc structure which would be **NTE** _[/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE]_ field to see the element details. 
 
-Navigate to the Element **PID** select the two boxes action and select the proposed Qualification Value _F_
- ![IN161-7_12](assets/exercise7/IN161-7_13.png) 
+| Mapping Element | Prompt | Expected output  |
+|-----------------|--------|------------------|
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 1st to the 80th character.   | <xsl:sequence select="substring($nodes_in/NTE, 1, 80)"/>  |
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE[1]/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 81st to the 140th character.  | <xsl:sequence select="substring($nodes_in/NTE, 81, 60)" |
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/STREET  to /Interchange/FunctionalGroup/863/N1 [98 = SH]/N3/166| Create an XPath 2.0 that truncates the house number from the input $nodes_in/STREET if the house number is at the beginning and is just based on numbers. 
+ | <xsl:sequence select="replace($nodes_in/STREET,'^\d+\s',´´) 
+" |
 
-Navigate to the Element **N1** select the two boxes action and select the proposed Qualification Value _ST_
- ![IN161-7_12](assets/exercise7/IN161-7_14.png)
+----
+**Set Conditions at a Leaf Node**  
+You can set conditions at a group node or leaf node. A condition is used to write a node into the target  
+payload under specific circumstances expressed by the condition. The leaf node condition feature especially has the advantage that you must put all the condition complexity into the mapping function. This is separated and makes the mapping function much more straigthforward.
+1) If you need a condition at  the leaf node, follow the  following steps:
+2) Check which leaf nodes you need a condition for. We prepared ones below.
+3) Click on the chosen target node, **93[2]** _[/Interchange/FunctionalGroup/863/N1 [98 = SH]/N2/93 [2]_] because this should be generated, if the input string from node **NAME1**_/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/NAME1_ is longer than 35 characters, these remainaing characters will be written into the leaf node **93[2]**. 
+![IN161-6_03](assets/exercise7/IN161-6_03.png)   
 
-A qualified Element of **N1** was created with the qualified value _ST_. We need to have multiple **N1** Segments as such we need to qualify 2 additional elements with the qualified value _SE_ For the Selling Party and _BY_ for the Buyer Party. This qualification enables a direct mapping of the source elements from the IDoc structure to the Target structure without any additional functional mapping steps. 
-To qualify another Enumreation Value for the **N1** Segment we will duplicate the Node by selecting the qualified **N1** right Mouse click and select from the action _"Duplicate Qualified Node"_ with the value _"SE"_ as indicated on the screenshot. 
-![IN161-7_12](assets/exercise7/IN161-7_15.png)
-![IN161-7_12](assets/exercise7/IN161-7_16.png)
+4) Go the mapping list.
+5) Enable the "Condition" by selecting the empty checkbox
+6) The Tab "Condition" is visible, open it and enter the specific condition. 
+        _["boolean(string-length($nodes_in/NAME1[1]) > 35)"]_ 
+![IN161-6_04](assets/exercise7/IN161-6_04.png)
 
-We do the same for the newly created qualified **N1** node as before as such duplicate the Node by selecting the qualified **N1** right Mouse click and select from the action _"Duplicate Qualified Node"_ and select the _"BY"_
-![IN161-7_12](assets/exercise7/IN161-7_17.png)
+7) Enable this as shared condition. Enter A name "Name2" and a Description "Long Name Condition". 
+       You will see that in the Shared Code Tab beside "Global Parameters" you have now 1 entry. You can reuse this condition on the second instance of the node **93** of **N2** in the group of **N1 [98 = SO]**. 
+![IN161-6_04](assets/exercise7/IN161-6_05.png)
 
-Next navigate to the Element **DTM** right mouse click and select _"Qualify Node..."_ 
-![IN161-7_12](assets/exercise7/IN161-7_18.png)
+8) Navigate to the element **93[2]** under the Element **N2** of **N1[98=SO]** _[/Interchange/FunctionalGroup/863/N1 [98 = SO]/N2/93 [2]]_ and assign the shared Code Condition by enabling again the Condition from the Mapping List, navigate to the Condition Tab and Select "Assign Shared Code" Select "Name2" and Save your chnages. 
+![IN161-6_04](assets/exercise7/IN161-6_06.png)
 
-Select the Value _"050"_ from the Enumeration lsit and click **"Create"** to qualify the **DTM** segment. 
+9) Select Simulate option to verify if your changes saved properly and get results in the Simulation Data Tab. 
+(In case you ran the simulation before, rerun the simulation again)
+![IN161-6_04](assets/exercise7/IN161-6_07.png)
+![IN161-6_04](assets/exercise7/IN161-6_08.png)
 
-Once you verified the actions you can filter out the selected Elements. Navigate to the Filter of the First Column **Node** and set a filter to _"Show Selected Nodes"_
-![IN161-7_12](assets/exercise7/IN161-7_19.png)
 
-Save your changes! 
+----
 
-Congratulations — you have finished the TechEd exercise!
+![IN161-6_03](assets/exercise7/IN161-6_3.png)
+Open _Joule_ from the mapping editor.
+
+----
+
+![IN161-6_04](assets/exercise7/IN161-6_4.png)
+Describe the transformation you need in plain language, for example:
+
+> "Concatenate the measured value and its unit of measure, separated by a space, and return the result as a single string."
+
+Then let Joule generate the mapping function.
+
+----
+
+![IN161-6_05](assets/exercise7/IN161-6_5.png)
+Review the mapping function that Joule proposes. Check that it uses the correct source fields and produces the expected output. If it is not quite right, refine your description and let Joule regenerate it.
+
+----
+
+![IN161-6_06](assets/exercise7/IN161-6_6.png)
+Apply the generated function to the target field, then test it with example values to confirm the output is correct.
+
+----
+
+![IN161-6_07](assets/exercise7/IN161-6_7.png)
+Optionally, repeat the process for another transformation – for example, ask Joule to map an internal steel-grade code to the trading partner's code, or to convert the unit of measure.
+
+----
+
+![IN161-6_08](assets/exercise7/IN161-6_8.png)
+When you are satisfied with the result, click _Save_ to store your MAG.
+
+----
+
+![IN161-6_09](assets/exercise7/IN161-6_9.png)
+Your MAG is already assigned to your Quality Certificate-UserXXX agreement from Exercise 6, so you only need to make the new version effective: open the agreement, click _Save_ and then _Update_ to write the changes to the Partner Directory. Wait until the agreement returns to _Active_.
+
+----
+
+![IN161-6_10](assets/exercise7/IN161-6_10.png)
+Send a test message: go to Design -> Integrations and APIs -> IN161-UserXXX, open _Artifacts_, and click _More_ (...) -> _Deploy_.
+
+----
+
+![IN161-6_11](assets/exercise7/IN161-6_11.png)
+Go to Monitor -> B2B Scenarios -> Interchanges, click _Go_, and open your outbound interchange. In the generated ANSI X12 863 message, confirm that the fields handled by your Joule-generated mapping functions now contain the expected, transformed values.
+
+----
+
+Continue with: [Exercise 8 - (Bonus) Working with the Functional Acknowledgment](Exercise-8.md)
 
 Please give us feedback for this session **IN161**
 

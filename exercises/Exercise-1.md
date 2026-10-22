@@ -212,7 +212,7 @@ The agreement created in "by-reference" mode shows a one-way, outbound business 
 
 In our example this is a mapping that was **migrated from SAP PI/PO** – a very common starting point, because many customers already run working message mappings there and reuse them when they move B2B to Integration Suite. It does not have to come from PI/PO, though: it could just as well be a plain **XSLT** exported from any other system. The point is simply that *some* existing mapping is reused here as-is.
 
-In Exercise 5 you will then create a **Mapping Guideline (MAG)** – the native mapping entity of the SAP Integration Advisor – and use it to **replace** this old (migrated) mapping with one you own and can evolve yourself.
+In Exercise 6 you will then create a **Mapping Guideline (MAG)** – the native mapping entity of the SAP Integration Advisor – and use it to **replace** this old (migrated) mapping with one you own and can evolve yourself.
 
 Let's see this in action! Click Activate.
 

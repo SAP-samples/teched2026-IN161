@@ -143,7 +143,7 @@ After deployment, the simulated QM system sends a ZQMOUTTC IDoc. Go to Monitor -
 
 ----
 
-Continue with: [Exercise 5 - Create your own Mapping Guideline (MAG) using proposals](Exercise-5.md)
+Continue with: [Exercise 5 - (Optional) Create Target Message Implementation Guideline](Exercise-5.md)
 
 Please give us feedback for this session **IN161**
 
