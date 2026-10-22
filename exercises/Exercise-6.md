@@ -41,25 +41,25 @@ Select the target MIG: [IN161] Heartland Metals Supply Co. - 863 - Target
 
 ![Name the MAG](assets/exercise6/IN161-5_05.png)
 
-Enter the MAG name using the following naming scheme: Mapping [IN161]  UserXXX IDoc - Source to 863 - Target (replace XXX with your number), then click Create.
+Enter the MAG name using the following naming scheme: Mapping [IN161] UserXXX IDoc - Source to 863 - Target (replace XXX with your number), then click Create.
 
 ----
 
 ![Request a proposal](assets/exercise6/IN161-5_06.png)
 
-Your new MAG opens in the mapping editor. It is still empty – no fields are mapped yet. To accelerate the mapping of the source to target elements and avoid mapping everything manually, request a proposal from the knowledge base: click "Propose" in the right upper corner beside "Simulate" button.
+Your new MAG opens in the mapping editor. It is still empty – no fields are mapped yet. To accelerate the mapping of the source to target elements and avoid mapping everything manually, request a proposal from the knowledge base: click Propose in the upper-right corner next to the Simulate button.
 
 ----
 
 ![Select Best Proposal](assets/exercise6/IN161-5_07.png)
 
-To automatically apply the proposal with the highest confidence, click "Select Best Proposal" from the lower part of the screen in the Details section beside Validate button.
+To automatically apply the proposal with the highest confidence, click Select Best Proposal in the Details section at the lower part of the screen, next to the Validate button.
 
 ----
 
-![ Use Only Valid Mappings](assets/exercise6/IN161-5_08.png)
+![Use only valid mappings](assets/exercise6/IN161-5_08.png)
 
-Because the knowledge base can include mapping functions that may not work in your context, select "Validate" button in the Details section to ensure to use only valid mapping elements/function snippets.
+Because the knowledge base can include mapping functions that may not work in your context, click Validate in the Details section to ensure only valid mapping elements/function snippets are used.
 
 ----
 
@@ -80,7 +80,7 @@ Now use your new MAG in your agreement. Go to B2B Scenarios in the left-hand nav
 Switch to the B2B Scenarios tab and set the B2B Scenario to Edit mode. In the QualityCertificate_Outbound transaction flow:
 - Click the Mapping box.
 - In the details pane, click the Mapping field to open the selection dialog.
-- Search for your MAG _Mapping [IN161] UserXXX Idoc - Source to 863 - Target and select it, then click Choose. In case you do not find your MAG hit the "Reset" button to see all the available MAGs from Integration Advisor! 
+- Search for your MAG Mapping [IN161] UserXXX IDoc - Source to 863 - Target and select it, then click Choose. If you do not find your MAG, click Reset to see all the available MAGs from Integration Advisor.
 
 ----
 
@@ -92,7 +92,7 @@ Click Save on the agreement, then click Update to write the changes to the Partn
 
 ![Send a test message and verify](assets/exercise6/IN161-5_13.png)
 
-Send a test message: go to Design -> Integrations and APIs -> IN161-UserXXX, open Artifacts, click the three dots(...) -> Deploy. Then go to Monitor -> B2B Scenarios -> Interchanges, click Go, and open your outbound interchange to confirm the ANSI X12 863 message was produced by your own MAG.
+Send a test message: go to Design -> Integrations and APIs -> IN161-UserXXX, open Artifacts, click the three dots (...) -> Deploy. Then go to Monitor -> B2B Scenarios -> Interchanges, click Go, and open your outbound interchange to confirm the ANSI X12 863 message was produced by your own MAG.
 
 ----
 
