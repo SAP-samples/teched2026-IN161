@@ -2,7 +2,7 @@
 
 ## Overview
 In this exercise you will create the Trading Partner specific Target MIG.  
-Prerequisite: Payload _XYZ X12 863.edi_ (download from the Payload Folder)  
+Prerequisite: Download the sample payload [X12-863.txt](Payload/X12-863.txt) from the Payload folder.  
 Goto Message Implmenentation Guidelines Overview screen, Select in the Create button dropdown the "Create by Payload" option.
 ![IN161-7_01](assets/exercise5/IN161-7_01.png) 
 
