@@ -17,25 +17,25 @@ As usual, replace XXX with your participant number wherever it appears.
 
 ----
 
-![Open the interchange monitor](assets/exercise8/IN161-8_01.png)
+![Open the interchange monitor](assets/exercise8/IN161_8_01.png)
 
 In the left-hand navigation, go to Monitor -> B2B Scenarios and open the Interchanges tile.
 
 ----
 
-![Find and select your completed interchange](assets/exercise8/IN161-8_02.png)
+![Find and select your completed interchange](assets/exercise8/IN161_8_02.png)
 
 Filter by your Receiver Name IN161-UserXXX and click Go. From the previous exercises you should see one or more outbound interchanges with status Completed. Select one of them in the list by ticking its checkbox – this enables the Actions button.
 
 ----
 
-![Choose Duplicate and Retry](assets/exercise8/IN161-8_03.png)
+![Choose Duplicate and Retry](assets/exercise8/IN161_8_03.png)
 
 Click Actions. Because your interchange is Completed, the only available action is Duplicate and Retry – Restart and Retry are reserved for interchanges in status Failed. Choose Duplicate and Retry to send a copy of this completed interchange as a new interchange.
 
 ----
 
-![Confirm the duplicate](assets/exercise8/IN161-8_04.png)
+![Confirm the duplicate](assets/exercise8/IN161_8_04.png)
 
 In the Confirm Duplicate dialog, enter a reason in Reason for Duplicate and Retry (for example, Teched Resend) and click Confirm Duplicate.
 
@@ -43,13 +43,13 @@ In the Confirm Duplicate dialog, enter a reason in Reason for Duplicate and Retr
 
 ----
 
-![A new duplicate interchange appears](assets/exercise8/IN161-8_05.png)
+![A new duplicate interchange appears](assets/exercise8/IN161_8_05.png)
 
 Click Go to refresh the Interchanges list. A new outbound interchange now appears at the top with Relation Type Copied From. Your original interchange is still there, unchanged, with Relation Type Original Interchange – confirming that Duplicate and Retry creates a copy rather than changing the original.
 
 ----
 
-![Restart and Retry on a failed interchange](assets/exercise8/IN161-8_06.png)
+![Restart and Retry on a failed interchange](assets/exercise8/IN161_8_06.png)
 
 To see the difference, look at a Failed interchange: when you select one and open Actions, it offers Restart and Retry instead of Duplicate and Retry. Keep the distinction in mind:
 

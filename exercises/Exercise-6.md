@@ -15,67 +15,67 @@ As usual, replace XXX with your participant number wherever it appears.
 
 ----
 
-![Open MAGs](assets/exercise6/IN161-5_01.png)
+![Open MAGs](assets/exercise6/IN161_6_01.png)
 
 In the left-hand navigation, go to Design -> MAGs.
 
 ----
 
-![Create MAG](assets/exercise6/IN161-5_02.png)
+![Create MAG](assets/exercise6/IN161_6_02.png)
 
 Click Create -> Graphical MAG:Standard.
 
 ----
 
-![Select source MIG](assets/exercise6/IN161-5_03.png)
+![Select source MIG](assets/exercise6/IN161_6_03.png)
 
 Select the source MIG: [IN161] Ironvale Steel Corp. - IDoc - Source
 
 ----
 
-![Select target MIG](assets/exercise6/IN161-5_04.png)
+![Select target MIG](assets/exercise6/IN161_6_04.png)
 
 Select the target MIG: [IN161] Heartland Metals Supply Co. - 863 - Target
 
 ----
 
-![Name the MAG](assets/exercise6/IN161-5_05.png)
+![Name the MAG](assets/exercise6/IN161_6_05.png)
 
 Enter the MAG name using the following naming scheme: Mapping [IN161] UserXXX IDoc - Source to 863 - Target (replace XXX with your number), then click Create.
 
 ----
 
-![Request a proposal](assets/exercise6/IN161-5_06.png)
+![Request a proposal](assets/exercise6/IN161_6_06.png)
 
 Your new MAG opens in the mapping editor. It is still empty – no fields are mapped yet. To accelerate the mapping of the source to target elements and avoid mapping everything manually, request a proposal from the knowledge base: click Propose in the upper-right corner next to the Simulate button.
 
 ----
 
-![Select Best Proposal](assets/exercise6/IN161-5_07.png)
+![Select Best Proposal](assets/exercise6/IN161_6_07.png)
 
 To automatically apply the proposal with the highest confidence, click Select Best Proposal in the Details section at the lower part of the screen, next to the Validate button.
 
 ----
 
-![Use only valid mappings](assets/exercise6/IN161-5_08.png)
+![Use only valid mappings](assets/exercise6/IN161_6_08.png)
 
 Because the knowledge base can include mapping functions that may not work in your context, click Validate in the Details section to ensure only valid mapping elements/function snippets are used.
 
 ----
 
-![Review and Save](assets/exercise6/IN161-5_09.png)
+![Review and Save](assets/exercise6/IN161_6_09.png)
 
 Review the proposed mappings. The knowledge base maps the quality-relevant fields (for example, inspection/test values and their units) from the ZQMOUTTC structure to the corresponding ANSI X12 863 segments. Then click Save.
 
 ----
 
-![Open your agreement](assets/exercise6/IN161-5_10.png)
+![Open your agreement](assets/exercise6/IN161_6_10.png)
 
 Now use your new MAG in your agreement. Go to B2B Scenarios in the left-hand navigation under Design and go to -> Agreements and open your agreement Quality Certificate-UserXXX. It should be Active from the previous exercise.
 
 ----
 
-![Replace the mapping with your MAG](assets/exercise6/IN161-5_11.png)
+![Replace the mapping with your MAG](assets/exercise6/IN161_6_11.png)
 
 Switch to the B2B Scenarios tab and set the B2B Scenario to Edit mode. In the QualityCertificate_Outbound transaction flow:
 - Click the Mapping box.
@@ -84,13 +84,13 @@ Switch to the B2B Scenarios tab and set the B2B Scenario to Edit mode. In the Qu
 
 ----
 
-![Save and Update the agreement](assets/exercise6/IN161-5_12.png)
+![Save and Update the agreement](assets/exercise6/IN161_6_12.png)
 
 Click Save on the agreement, then click Update to write the changes to the Partner Directory. Wait until the agreement returns to Active.
 
 ----
 
-![Send a test message and verify](assets/exercise6/IN161-5_13.png)
+![Send a test message and verify](assets/exercise6/IN161_6_13.png)
 
 Send a test message: go to Design -> Integrations and APIs -> IN161-UserXXX, open Artifacts, click the three dots (...) -> Deploy. Then go to Monitor -> B2B Scenarios -> Interchanges, click Go, and open your outbound interchange to confirm the ANSI X12 863 message was produced by your own MAG.
 
