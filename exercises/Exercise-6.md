@@ -33,9 +33,7 @@ In the mapping editor, locate the target field in the X12 863 that needs a trans
 |-----------------|--------|------------------|
 | : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 1st to the 80th character.   | <xsl:sequence select="substring($nodes_in/NTE, 1, 80)"/>  |
 | : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE[1]/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 81st to the 140th character.  | <xsl:sequence select="substring($nodes_in/NTE, 81, 60)" |
-| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/STREET  to /Interchange/FunctionalGroup/863/N1 [98 = SH]/N3/166| Create an XPath 2.0 that truncates the house number from the input $nodes_in/STREET if the house number is at the beginning and is just based on numbers. 
- | <xsl:sequence select="replace($nodes_in/STREET,'^\d+\s',´´) 
-" |
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/STREET  to /Interchange/FunctionalGroup/863/N1 [98 = SH]/N3/166| Create an XPath 2.0 that truncates the house number from the input $nodes_in/STREET if the house number is at the beginning and is just based on numbers. | <xsl:sequence select="replace($nodes_in/STREET,'^\d+\s',´´)  |
 
 ----
 **Set Conditions at a Leaf Node**  
