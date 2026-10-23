@@ -1,73 +1,67 @@
-# IN161 - Exercise 8 — (Bonus) Working with the Functional Acknowledgment
+# IN161 - Exercise 8 — (Bonus) Duplicate and retry an interchange
 
 ## Overview
-In ANSI X12, the functional acknowledgment is the **997**. Your trading partner sends it back to confirm whether the X12 863 message you sent was syntactically accepted – fully, partially, or not at all. In this bonus exercise you will enable the receipt of the 997 in your Trading Partner Agreement and observe its status in the B2B Monitor.
+Sometimes a message has to be processed **again**. This is a general capability of Trading Partner Management and applies to any interchange, not only the X12 863 you worked with in this workshop. In the B2B Monitor, Trading Partner Management offers an **Actions** menu on an interchange with three options – **Restart**, **Retry**, and **Duplicate and Retry** – and it is important to understand that they do **not** do the same thing and apply to **different** interchange states:
 
-![IN161-7_01](assets/exercise8/IN161-7_01.png)
-In the left-hand navigation, go to *Design* > *B2B Scenarios*.
+- **Restart** (status **Failed** only) resets the sender payload to the beginning of the integration flow, so the **message mapping is re-executed**. Use it for errors in message transformation or formatting (the mapping itself needs to run again).
+- **Retry** (status **Failed** only) resets the receiver payload to the receiver communication step and **bypasses the mapping**. Use it for receiver-side problems or temporary connectivity issues – for example, when the receiving system was down – where the original mapping is still valid.
+- **Duplicate and Retry** (status **Completed** only) creates a **copy** of the interchange as a **new** interchange and processes that copy. The **original interchange is untouched** – it keeps its status and processing history, and only gets an event/note noting that it was duplicated.
 
-----
-----
+In this exercise your earlier interchanges completed successfully, so **Restart** and **Retry** (which target failed messages) do not apply. Instead you will take one of your **Completed** outbound interchanges and run **Duplicate and Retry**, so you can see that a duplicate is sent as a new interchange while the original stays as it was.
 
-![IN161-7_02](assets/exercise8/IN161-7_02.png)
-Open *Agreements* in *B2B Scenarios*.
+More information: [Restart or Retry, or Duplicate and Retry Interchanges](https://help.sap.com/docs/integration-suite/isuite-trading-partner-management/restart-retry-interchanges)
 
-----
-----
+> Note: Reprocessing requires a reprocess destination (B2BTPM_Reprocess_Endpoint) to be configured in the tenant. For this workshop it is already set up for you. If the Actions menu is not available, ask your trainer.
 
-![IN161-7_03](assets/exercise8/IN161-7_03.png)
-Open the *Trading Partner Agreement* between your partners (for example, IN161-UserXXX and your counterpart).
-Use your participant number (XXX) where applicable.
+As usual, replace XXX with your participant number wherever it appears.
 
 ----
-----
 
-![IN161-7_04](assets/exercise8/IN161-7_04.png)
-Within your *Trading Partner Agreement*, navigate to the *B2B Scenario* section.
+![Open the interchange monitor](assets/exercise8/IN161-8_01.png)
 
-----
-----
-
-![IN161-7_05](assets/exercise8/IN161-7_05.png)
-Switch the *Trading Partner Agreement* to *Edit* mode to modify the *Functional Acknowledgment* settings.
+In the left-hand navigation, go to Monitor -> B2B Scenarios and open the Interchanges tile.
 
 ----
-----
 
-![IN161-7_06](assets/exercise8/IN161-7_06.png)
-Select *Interchange (outgoing)* and check the *Receiver Functional Acknowledgment* checkbox.
+![Find and select your completed interchange](assets/exercise8/IN161-8_02.png)
 
-----
-----
-
-![IN161-7_07](assets/exercise8/IN161-7_07.png)
-Go to the *Communication* tab and set *Channel* to the endpoint through which your trading partner will send the X12 997 functional acknowledgment.
+Filter by your Receiver Name IN161-UserXXX and click Go. From the previous exercises you should see one or more outbound interchanges with status Completed. Select one of them in the list by ticking its checkbox – this enables the Actions button.
 
 ----
-----
 
-![IN161-7_08](assets/exercise8/IN161-7_08.png)
-The channel is already prepared. Select *Company.AS2.Sender*.
+![Open the Actions menu](assets/exercise8/IN161-8_03.png)
 
-----
-----
-
-![IN161-7_09](assets/exercise8/IN161-7_09.png)
-Click *Save* to store the changes to the *Trading Partner Agreement*.
+Click Actions. Because your interchange is Completed, only Duplicate and Retry is available – Restart and Retry are reserved for interchanges in status Failed.
 
 ----
-----
 
-![IN161-7_10](assets/exercise8/IN161-7_10.png)
-Click *Update* so the changes are written to the *Partner Directory*.
+![Choose Duplicate and Retry](assets/exercise8/IN161-8_04.png)
 
-Then send a test message (by deploying the *Integration Flow (iFlow)* in the *Package* you copied). After that, open the *B2B Monitor* to view the status of the *Functional Acknowledgment*.
+Choose Actions -> Duplicate and Retry to send a copy of this completed interchange as a new interchange.
 
 ----
+
+![Confirm the action](assets/exercise8/IN161-8_05.png)
+
+In the confirmation dialog, enter a reason for the action and click Confirm.
+
+> Note: This action cannot be reversed and can take a while to complete.
+
 ----
 
-![IN161-7_11](assets/exercise8/IN161-7_11.png)
-Because the X12 997 your trading partner sends back can report a partial acknowledgment, you can adjust the setting that controls how this partial status is displayed in monitoring. Change the setting and send another message to see the different behavior.
+![A new duplicate interchange appears](assets/exercise8/IN161-8_06.png)
+
+Go back to the Interchanges list and click Go to refresh. A new outbound interchange now appears next to your original one. The original Completed interchange still shows its original status and processing history, and a new event documents that it was duplicated – confirming that Duplicate and Retry creates a copy rather than changing the original.
+
+----
+
+![Restart vs. Retry vs. Duplicate and Retry](assets/exercise8/IN161-8_07.png)
+
+Compare the three actions one more time:
+
+- **Restart** (Failed only) – re-runs processing from the start, so the **mapping is executed again**; use it for mapping/formatting errors.
+- **Retry** (Failed only) – re-runs from the receiver step and **skips the mapping**; use it for receiver-side or connectivity errors (for example, the receiver was down).
+- **Duplicate and Retry** (Completed only) – creates and processes a **duplicate** as a new interchange; the original is left unchanged.
 
 Congratulations — you have finished the TechEd exercise!
 

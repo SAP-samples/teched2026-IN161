@@ -116,7 +116,7 @@ Go to Monitor -> B2B Scenarios -> Interchanges, click _Go_, and open your outbou
 
 ----
 
-Continue with: [Exercise 8 - (Bonus) Working with the Functional Acknowledgment](Exercise-8.md)
+Continue with: [Exercise 8 - (Bonus) Duplicate and retry an interchange](Exercise-8.md)
 
 Please give us feedback for this session **IN161**
 
