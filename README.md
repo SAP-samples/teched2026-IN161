@@ -38,15 +38,18 @@ The exercises take you through the full journey:
 
 Understanding this path matters because PI/PO is approaching end of maintenance: being able to carry existing mappings forward, and then extend them with proposals and AI, is what makes the move to Integration Suite fast and low-risk.
 
+Two optional exercises round out the picture: creating the target Message Implementation Guideline (MIG) yourself, and – on the operations side – reprocessing a message in the B2B Monitor by duplicating and retrying an interchange.
+
 ## Exercises
 
 - [Exercise 1 – Onboard a new trading partner by reference](exercises/Exercise-1.md)
 - [Exercise 2 – Send a test message](exercises/Exercise-2.md)
 - [Exercise 3 – Monitor the message](exercises/Exercise-3.md)
 - [Exercise 4 – Onboard the trading partner by copy](exercises/Exercise-4.md)
-- [Exercise 5 – Create your own Mapping Guideline (MAG) using proposals](exercises/Exercise-5.md)
-- [Exercise 6 – Enhance the mapping with Joule](exercises/Exercise-6.md)
-- [Exercise 7 – (Bonus) Work with the functional acknowledgment](exercises/Exercise-7.md)
+- [Exercise 5 – (Optional) Create the target Message Implementation Guideline (MIG)](exercises/Exercise-5.md)
+- [Exercise 6 – Create your own Mapping Guideline (MAG) using proposals](exercises/Exercise-6.md)
+- [Exercise 7 – Enhance the mapping with Joule](exercises/Exercise-7.md)
+- [Exercise 8 – (Bonus) Duplicate and retry an interchange](exercises/Exercise-8.md)
 
 Please give us feedback for this session **IN161**
 
