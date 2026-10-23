@@ -29,35 +29,29 @@ Filter by your Receiver Name IN161-UserXXX and click Go. From the previous exerc
 
 ----
 
-![Open the Actions menu](assets/exercise8/IN161-8_03.png)
+![Choose Duplicate and Retry](assets/exercise8/IN161-8_03.png)
 
-Click Actions. Because your interchange is Completed, only Duplicate and Retry is available – Restart and Retry are reserved for interchanges in status Failed.
-
-----
-
-![Choose Duplicate and Retry](assets/exercise8/IN161-8_04.png)
-
-Choose Actions -> Duplicate and Retry to send a copy of this completed interchange as a new interchange.
+Click Actions. Because your interchange is Completed, the only available action is Duplicate and Retry – Restart and Retry are reserved for interchanges in status Failed. Choose Duplicate and Retry to send a copy of this completed interchange as a new interchange.
 
 ----
 
-![Confirm the action](assets/exercise8/IN161-8_05.png)
+![Confirm the duplicate](assets/exercise8/IN161-8_04.png)
 
-In the confirmation dialog, enter a reason for the action and click Confirm.
+In the Confirm Duplicate dialog, enter a reason in Reason for Duplicate and Retry (for example, Teched Resend) and click Confirm Duplicate.
 
 > Note: This action cannot be reversed and can take a while to complete.
 
 ----
 
-![A new duplicate interchange appears](assets/exercise8/IN161-8_06.png)
+![A new duplicate interchange appears](assets/exercise8/IN161-8_05.png)
 
-Go back to the Interchanges list and click Go to refresh. A new outbound interchange now appears next to your original one. The original Completed interchange still shows its original status and processing history, and a new event documents that it was duplicated – confirming that Duplicate and Retry creates a copy rather than changing the original.
+Click Go to refresh the Interchanges list. A new outbound interchange now appears at the top with Relation Type Copied From. Your original interchange is still there, unchanged, with Relation Type Original Interchange – confirming that Duplicate and Retry creates a copy rather than changing the original.
 
 ----
 
-![Restart vs. Retry vs. Duplicate and Retry](assets/exercise8/IN161-8_07.png)
+![Restart and Retry on a failed interchange](assets/exercise8/IN161-8_06.png)
 
-Compare the three actions one more time:
+To see the difference, look at a Failed interchange: when you select one and open Actions, it offers Restart and Retry instead of Duplicate and Retry. Keep the distinction in mind:
 
 - **Restart** (Failed only) – re-runs processing from the start, so the **mapping is executed again**; use it for mapping/formatting errors.
 - **Retry** (Failed only) – re-runs from the receiver step and **skips the mapping**; use it for receiver-side or connectivity errors (for example, the receiver was down).
