@@ -113,7 +113,7 @@ The purpose influences the [payload indicator](https://help.sap.com/docs/integra
 
 ![Create Type System](assets/exercise1/IN161_Exercise1_14.png)
 
-Assign the type system your trading partner will use. Open the newly created system, go to Type Systems, and click Create Type System.
+Assign the type system your trading partner will use. In the Systems list, click your new B2B System to open it, then go to the Type Systems tab and click Create Type System.
 
 ----
 
@@ -166,7 +166,7 @@ Activate the communication channel so it is deployed to the Partner Directory. C
 ![Agreements - Create](assets/exercise1/IN161_Exercise1_20.png)
 
 The basic master data for the trading partner has now been saved. Next, you will create a B2B scenario via a Trading Partner Agreement. The required agreement template with all master data details has already been set up for you.
-Go to the Agreements tab and click Create.
+In the left-hand navigation, open B2B Scenarios again, then go to the Agreements tab at the top and click Create.
 
 ----
 

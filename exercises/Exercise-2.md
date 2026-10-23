@@ -91,6 +91,12 @@ Check the Confirm transaction handling configuration checkbox, then click Deploy
 After deployment, the simulated QM system sends a ZQMOUTTC IDoc. TPM maps it to an ANSI X12 863 message and sends it to your trading partner.
 
 ----
+
+![Inside the iFlow](assets/exercise2/IN161_Exercise2_15.png)
+
+Optionally, open your iFlow send-Qualitydata_XXX to see how it works. The integration process starts with a timer start event that fires once when the iFlow is deployed – that is what triggers the ZQMOUTTC IDoc to be sent, without any manual request. The flow then builds the IDoc payload and hands it over to TPM for mapping and delivery to your trading partner.
+
+----
 Continue with: [Exercise 3 - monitor the message](Exercise-3.md)
 
 Please give us feedback for this session **IN161**
