@@ -20,99 +20,90 @@ Several more straight forward mapping functions transform the input from one nod
 For example, truncate, split or concatenate the input string's first or second part and write the remaining part into the output. You’ll find the list of the mapping elements with such mapping functions below.  
 
 
-![IN161-6_01](assets/exercise7/IN161-6_01.png)
+![IN161-7_01](assets/exercise7/IN161-7_01.png)
 In the left-hand navigation, go to Design -> MAGs and open your MAG from the previous exercise: _QMapping [IN161]  UserXXX IDoc - Source to 863 - Target_ (replace XXX with your number).
 
 ----
 
-![IN161-6_02](assets/exercise7/IN161-6_02.png)
+![IN161-7_02](assets/exercise7/IN161-7_02.png)<br>
 In the mapping editor, locate the target field in the X12 863 that needs a transformation Element **352** _[/Interchange/FunctionalGroup/863/NTE/352]_ 
-(for example, the field that should hold a Note/Special Instruction). Select the corresponding Source element by clicking on it from the IDoc structure which would be **NTE** _[/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE]_ field to see the element details. 
+(for example, the field that should hold a Note/Special Instruction). Select the corresponding Source element by clicking on it from the IDoc structure which would be **NTE** _[/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE]_ field to see the element details.<br>
+
+You could use the **Structure column** to filter for the element. To do so navigate to the Source Or Target Message above the root element and click the "Structure" column and filter the element  **NTE**.
+![IN161-7_03](assets/exercise7/IN161-7_03.png)<br>
+
+
+After that you should see the element details by clicking on the source or target element. In the lower part of the Mapping Editor the detials of the mapped element should appear, eg. in the **Function** tab with the XSLT Editor.
+ ![IN161-7_04](assets/exercise7/IN161-7_04.png)<br>
+
+The required mapping rules could vary based on the given requirements of the mapping specification of the business requirements. In the table below you see some example what could be designed via the XSLT Function. The accelerated help via Joule will guide you for the required XSLT/XPath function/expression.<br>
+
 
 | Mapping Element | Prompt | Expected output  |
 |-----------------|--------|------------------|
 | : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 1st to the 80th character.   | <xsl:sequence select="substring($nodes_in/NTE, 1, 80)"/>  |
-| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE[1]/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 81st to the 140th character.  | <xsl:sequence select="substring($nodes_in/NTE, 81, 60)" |
-| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/STREET  to /Interchange/FunctionalGroup/863/N1 [98 = SH]/N3/166| Create an XPath 2.0 that truncates the house number from the input $nodes_in/STREET if the house number is at the beginning and is just based on numbers. 
- | <xsl:sequence select="replace($nodes_in/STREET,'^\d+\s',´´) 
-" |
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE to /Interchange/FunctionalGroup/863/NTE[1]/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 81st to the 140th character.  | <xsl:sequence select="substring($nodes_in/NTE, 81, 60)" |<br>
+
+*Save* your changes. You can run a simulation with the given Payload for the Source Structure to verify the results or you can also run a simulation with the Exmaple Data of the MIG. 
+
 
 ----
+Let´s take an other example for a mapping function transformation. You can define a truncate function to consolidate the input structure you want to have mapped to the target. To do so navigate to the Element **166** under **N3** in the target X12 structure and use the following function in the table:<br>
+
+
+| Mapping Element | Prompt | Expected output  |
+|-----------------|--------|------------------|
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/STREET  to /Interchange/FunctionalGroup/863/N1 [98 = SH]/N3/166| Create an XPath 2.0 that truncates the house number from the input $nodes_in/STREET if the house number is at the beginning and is just based on numbers.  | <xsl:sequence select="replace($nodes_in/STREET,'^\d+\s',´´)" |
+
+*Save* your changes. You can run a simulation with the given Payload for the Source Structure to verify the results or you can also run a simulation with the Exmaple Data of the MIG. 
+
+----
+
+Let´s go into more functions which you could also easily manage via the Mapping Editor. 
+
 **Set Conditions at a Leaf Node**  
 You can set conditions at a group node or leaf node. A condition is used to write a node into the target  
 payload under specific circumstances expressed by the condition. The leaf node condition feature especially has the advantage that you must put all the condition complexity into the mapping function. This is separated and makes the mapping function much more straigthforward.
 1) If you need a condition at  the leaf node, follow the  following steps:
 2) Check which leaf nodes you need a condition for. We prepared ones below.
 3) Click on the chosen target node, **93[2]** _[/Interchange/FunctionalGroup/863/N1 [98 = SH]/N2/93 [2]_] because this should be generated, if the input string from node **NAME1**_/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/NAME1_ is longer than 35 characters, these remainaing characters will be written into the leaf node **93[2]**. 
-![IN161-6_03](assets/exercise7/IN161-6_03.png)   
+![IN161-7_05](assets/exercise7/IN161-7_05.png)<br>   
+
+
 
 4) Go the mapping list.
 5) Enable the "Condition" by selecting the empty checkbox
 6) The Tab "Condition" is visible, open it and enter the specific condition. 
         _["boolean(string-length($nodes_in/NAME1[1]) > 35)"]_ 
-![IN161-6_04](assets/exercise7/IN161-6_04.png)
+![IN161-7_06](assets/exercise7/IN161-7_06.png)<br>
 
-7) Enable this as shared condition. Enter A name "Name2" and a Description "Long Name Condition". 
+
+7) Enable this as shared condition. Enter A name **"Name2"** and a Description "Long Name Condition". 
        You will see that in the Shared Code Tab beside "Global Parameters" you have now 1 entry. You can reuse this condition on the second instance of the node **93** of **N2** in the group of **N1 [98 = SO]**. 
-![IN161-6_04](assets/exercise7/IN161-6_05.png)
+![IN161-7_07](assets/exercise7/IN161-7_07.png)
 
-8) Navigate to the element **93[2]** under the Element **N2** of **N1[98=SO]** _[/Interchange/FunctionalGroup/863/N1 [98 = SO]/N2/93 [2]]_ and assign the shared Code Condition by enabling again the Condition from the Mapping List, navigate to the Condition Tab and Select "Assign Shared Code" Select "Name2" and Save your chnages. 
-![IN161-6_04](assets/exercise7/IN161-6_06.png)
+8) Navigate to the element **93[2]** under the Element **N2** of **N1[98=SO]** _[/Interchange/FunctionalGroup/863/N1 [98 = SO]/N2/93 [2]]_ and assign the shared Code Condition by enabling again the Condition from the Mapping List, navigate to the Condition Tab and Select **"Assign Shared Code"** Select **"Name2"** and Save your chnages. 
+![IN161-7_08](assets/exercise7/IN161-7_08.png)
 
 9) Select Simulate option to verify if your changes saved properly and get results in the Simulation Data Tab. 
 (In case you ran the simulation before, rerun the simulation again)
-![IN161-6_04](assets/exercise7/IN161-6_07.png)
-![IN161-6_04](assets/exercise7/IN161-6_08.png)
+![IN161-7_09](assets/exercise7/IN161-7_09.png)<br>
+
+![IN161-7_10](assets/exercise7/IN161-7_10.png)<br>
 
 
-----
+Optionally, repeat the process for another transformation of your choice, for example, ask Joule to provide a concatenation, splitting, or replacing fax/phone numbers.
 
-![IN161-6_03](assets/exercise7/IN161-6_3.png)
-Open _Joule_ from the mapping editor.
+| Mapping Element | Prompt | Expected output  |
+|-----------------|--------|------------------|
+|:/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC [AD_QUALIFIER = SO]/FAX  **to**   /Interchange/FunctionalGroup/863/N1 [98 = BY]/PER/PER/364 [365 = FX] | Create an XPath 2.0, expression, where the input is a number with hypens which need to be removed and set a country code 00 before the first number| concat('00', translate(FaxNumber, '-', '')) |
+  
 
-----
 
-![IN161-6_04](assets/exercise7/IN161-6_4.png)
-Describe the transformation you need in plain language, for example:
-
-> "Concatenate the measured value and its unit of measure, separated by a space, and return the result as a single string."
-
-Then let Joule generate the mapping function.
+**Save** your changes and simulate the results with the given payload.<br>
 
 ----
 
-![IN161-6_05](assets/exercise7/IN161-6_5.png)
-Review the mapping function that Joule proposes. Check that it uses the correct source fields and produces the expected output. If it is not quite right, refine your description and let Joule regenerate it.
-
-----
-
-![IN161-6_06](assets/exercise7/IN161-6_6.png)
-Apply the generated function to the target field, then test it with example values to confirm the output is correct.
-
-----
-
-![IN161-6_07](assets/exercise7/IN161-6_7.png)
-Optionally, repeat the process for another transformation – for example, ask Joule to map an internal steel-grade code to the trading partner's code, or to convert the unit of measure.
-
-----
-
-![IN161-6_08](assets/exercise7/IN161-6_8.png)
-When you are satisfied with the result, click _Save_ to store your MAG.
-
-----
-
-![IN161-6_09](assets/exercise7/IN161-6_9.png)
-Your MAG is already assigned to your Quality Certificate-UserXXX agreement from Exercise 6, so you only need to make the new version effective: open the agreement, click _Save_ and then _Update_ to write the changes to the Partner Directory. Wait until the agreement returns to _Active_.
-
-----
-
-![IN161-6_10](assets/exercise7/IN161-6_10.png)
-Send a test message: go to Design -> Integrations and APIs -> IN161-UserXXX, open _Artifacts_, and click _More_ (...) -> _Deploy_.
-
-----
-
-![IN161-6_11](assets/exercise7/IN161-6_11.png)
-Go to Monitor -> B2B Scenarios -> Interchanges, click _Go_, and open your outbound interchange. In the generated ANSI X12 863 message, confirm that the fields handled by your Joule-generated mapping functions now contain the expected, transformed values.
 
 ----
 
