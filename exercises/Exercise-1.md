@@ -232,6 +232,6 @@ The Activation Status now shows Active. Your trading partner is onboarded and yo
 
 Continue with: [Exercise 2 - Send a test message](Exercise-2.md)
 
-Please give us feedback for this session **IN161**
+Please give us feedback for this session **IN161**. Scan the QR code to open the mobile app, then navigate to this session (IN161) to give your feedback.
 
 ![QR Code](assets/survey_QR.png)
