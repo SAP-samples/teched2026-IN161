@@ -98,8 +98,8 @@ Send a test message: go to Design -> Integrations and APIs -> IN161-UserXXX, ope
 
 ----
 
-Continue with: [Exercise 7 - Enhance the mapping with Joule](Exercise-7.md)
+Continue with: [Exercise 7 - Enhance the Mapping Guideline (MAG) with custom functions](Exercise-7.md)
 
-Please give us feedback for this session **IN161**
+Please give us feedback for this session **IN161**. Scan the QR code to open the mobile app, then navigate to this session (IN161) to give your feedback.
 
 ![QR Code](assets/survey_QR.png)
