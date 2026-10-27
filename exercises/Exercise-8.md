@@ -59,6 +59,6 @@ To see the difference, look at a Failed interchange: when you select one and ope
 
 Congratulations — you have finished the TechEd exercise!
 
-Please give us feedback for this session **IN161**
+Please give us feedback for this session **IN161**. Scan the QR code to open the mobile app, then navigate to this session (IN161) to give your feedback.
 
 ![QR Code](assets/survey_QR.png)

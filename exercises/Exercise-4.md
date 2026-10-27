@@ -145,6 +145,6 @@ After deployment, the simulated QM system sends a ZQMOUTTC IDoc. Go to Monitor -
 
 Continue with: [Exercise 5 - (Optional) Create Target Message Implementation Guideline](Exercise-5.md)
 
-Please give us feedback for this session **IN161**
+Please give us feedback for this session **IN161**. Scan the QR code to open the mobile app, then navigate to this session (IN161) to give your feedback.
 
 ![QR Code](assets/survey_QR.png)

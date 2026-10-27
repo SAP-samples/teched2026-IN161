@@ -51,7 +51,7 @@ Two optional exercises round out the picture: creating the target Message Implem
 - [Exercise 7 – Enhance the mapping with Joule](exercises/Exercise-7.md)
 - [Exercise 8 – (Bonus) Duplicate and retry an interchange](exercises/Exercise-8.md)
 
-Please give us feedback for this session **IN161**
+Please give us feedback for this session **IN161**. Scan the QR code to open the mobile app, then navigate to this session (IN161) to give your feedback.
 
 ![QR Code](exercises/assets/survey_QR.png)
 

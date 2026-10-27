@@ -99,6 +99,6 @@ Optionally, open your iFlow send-Qualitydata_XXX to see how it works. The integr
 ----
 Continue with: [Exercise 3 - monitor the message](Exercise-3.md)
 
-Please give us feedback for this session **IN161**
+Please give us feedback for this session **IN161**. Scan the QR code to open the mobile app, then navigate to this session (IN161) to give your feedback.
 
 ![QR Code](assets/survey_QR.png)

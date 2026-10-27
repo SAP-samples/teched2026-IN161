@@ -61,6 +61,6 @@ Use the version dropdown to switch between the two payload versions:
 
 Continue with: [Exercise 4 - onboard the trading partner by copy](Exercise-4.md)
 
-Please give us feedback for this session **IN161**
+Please give us feedback for this session **IN161**. Scan the QR code to open the mobile app, then navigate to this session (IN161) to give your feedback.
 
 ![QR Code](assets/survey_QR.png)
