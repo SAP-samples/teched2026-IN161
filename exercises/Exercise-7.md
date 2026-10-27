@@ -6,10 +6,10 @@ Your MAG from Exercise 6 covers the mandatory field mappings like date conversio
  In this excercise this applies to finding the  corresponding source and target nodes that are semantically equivalent and creating complex functions if the values cannot be copied from the source side to the target side. To accelerate this, you will use **built-in helper features** to create such **mapping functions**.
 
 Typical examples in our Report of Test Results scenario:
-- Combine a measured value with its unit of measure into one formatted string (for example, `355 MPa`).
-- Convert an internal unit of measure to the code the partner expects.
-- Map an internal steel-grade / material code to the trading partner's code list.
-- Derive a pass/fail indicator by comparing a measured value against its specification limits.
+- Split a long note/instruction text across two target fields using substring functions (NTE → 863/NTE/352).
+- Strip a leading house number from a street address using a regular-expression replace (STREET → N3/166).
+- Write an overflow name segment conditionally when the source name exceeds 35 characters (NAME1 → N2/93[2]).
+- Reformat a phone/fax number by removing hyphens and prepending a country code (FAX → PER/364).
 
 As usual, replace XXX with your participant number wherever it appears.
 
@@ -44,7 +44,7 @@ Teaser: The accelerated help of XSLT functions/ xPath Expressions via artifical 
 | Mapping Element | Requirement| XPath expression |
 |-----------------|--------|------------------|
 | : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE **to** /Interchange/FunctionalGroup/863/NTE/352 | I need an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 1st to the 80th character.   | <xsl:sequence select="substring($nodes_in/NTE, 1, 80)"/>  |
-| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE **to** /Interchange/FunctionalGroup/863/NTE[1]/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 81st to the 140th character.  | <xsl:sequence select="substring($nodes_in/NTE, 81, 60)" |<br>
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/NTE **to** /Interchange/FunctionalGroup/863/NTE[1]/352 | Create an XPath 2.0 that outputs from $nodes_in/NTE all characters from the 81st to the 140th character.  | `<xsl:sequence select="substring($nodes_in/NTE, 81, 60)"/>` |
 
 *Save* your changes. You can run a simulation with the given Payload for the Source Structure to verify the results or you can also run a simulation with the Exmaple Data of the MIG. 
 
@@ -55,7 +55,7 @@ Let´s take an other example for a mapping function transformation. You can defi
 
 | Mapping Element | Requirement| XPath expression |
 |-----------------|--------|------------------|
-| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/STREET **to** /Interchange/FunctionalGroup/863/N1 [98 = SH]/N3/166 | Create an XPath 2.0 that truncates the house number from the input $nodes_in/STREET if the house number is at the beginning and is just based on numbers.  | <xsl:sequence select="replace($nodes_in/STREET,'^\d+\s',´´)" |
+| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/STREET **to** /Interchange/FunctionalGroup/863/N1 [98 = SH]/N3/166 | Create an XPath 2.0 that truncates the house number from the input $nodes_in/STREET if the house number is at the beginning and is just based on numbers.  | `<xsl:sequence select="replace($nodes_in/STREET,'^\d+\s','')"/>` |
 
 *Save* your changes. You can run a simulation with the given Payload for the Source Structure to verify the results or you can also run a simulation with the Exmaple Data of the MIG. 
 
@@ -81,11 +81,11 @@ payload under specific circumstances expressed by the condition. The leaf node c
 
 
 7) Enable this as shared condition. Enter A name **"Name2"** and a Description "Long Name Condition". 
-       You will see that in the Shared Code Tab beside "Global Parameters" you have now 1 entry. You can reuse this condition on the second instance of the node **93** of **N2** in the group of **N1 [98 = SO]**. 
+       You will see that in the Shared Code Tab beside "Global Parameters" you have now 1 entry. You can reuse this condition on the second instance of the node **93** of **N2** in the group of **N1 [98 = SE]**. 
 ![IN161-7_07](assets/exercise7/IN161-7_07.png)<br>
 
 
-8) Navigate to the element **93[2]** under the Element **N2** of **N1[98=SE]** _[/Interchange/FunctionalGroup/863/N1 [98 = SO]/N2/93 [2]]_ and assign the shared Code Condition by enabling again the Condition from the Mapping List, navigate to the Condition Tab and Select **"Assign Shared Code"** Select **"Name2"** and Save your chnages. 
+8) Navigate to the element **93[2]** under the Element **N2** of **N1[98=BY]** _[/Interchange/FunctionalGroup/863/N1 [98 = BY]/N2/93 [2]]_ and assign the shared Code Condition by enabling again the Condition from the Mapping List, navigate to the Condition Tab and Select **"Assign Shared Code"** Select **"Name2"** and Save your chnages. 
 ![IN161-7_08](assets/exercise7/IN161-7_08.png)<br>
 
 
@@ -100,7 +100,7 @@ Optionally, repeat the process for another transformation of your choice, for ex
 
 | Mapping Element | Requirement| XPath expression |
 |-----------------|--------|------------------|
-|:/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC [AD_QUALIFIER = SO]/FAX  **to**   /Interchange/FunctionalGroup/863/N1 [98 = BY]/PER/PER/364 [365 = FX] | Create an XPath 2.0, expression, where the input is a number with hypens which need to be removed and set a country code 00 before the first number|  <xsl:sequence select= concat('00', translate(FaxNumber, '-', '')) |
+|:/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC [AD_QUALIFIER = SO]/FAX  **to**   /Interchange/FunctionalGroup/863/N1 [98 = BY]/PER/364 [365 = FX] | Create an XPath 2.0, expression, where the input is a number with hypens which need to be removed and set a country code 00 before the first number|  `<xsl:sequence select="concat('00', translate($nodes_in/FAX, '-', ''))"/>` |
   
 
 
