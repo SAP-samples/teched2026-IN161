@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ZEDI863 xmlns="urn:sap-com:document:sap:idoc:soap:messages">
+   <IDOC BEGIN="1">
+      <EDI_DC40 SEGMENT="1">
+         <TABNAM>EDI_DC40</TABNAM>
+         <MANDT>740</MANDT>
+         <DOCNUM>007335726</DOCNUM>
+         <DOCREL>1809</DOCREL>
+         <STATUS>30</STATUS>
+         <DIRECT>1</DIRECT>
+         <OUTMOD>2</OUTMOD>
+         <IDOCTYP>ZEDI863</IDOCTYP>
+         <MESTYP>ZQMOUTTC</MESTYP>
+         <STDMES>ZQMOUT</STDMES>
+         <SNDPOR>SAPTST</SNDPOR>
+         <SNDPRT>LS</SNDPRT>
+         <SNDPRN>HE4CLNT40012345</SNDPRN>
+         <RCVPOR>CIDEV_EDI1</RCVPOR>
+         <RCVPRT>KU</RCVPRT>
+         <RCVPFC>WE</RCVPFC>
+         <RCVPRN>O123456-UserXXX</RCVPRN>
+         <CREDAT>20250620</CREDAT>
+         <CRETIM>123613</CRETIM>
+         <ARCKEY>urn:sap.com:msgid=005056B852391FD093BE950026DEE0DB</ARCKEY>
+         <SERIAL>20230930182103</SERIAL>
+      </EDI_DC40>
+      <ZQMTCSHPHDR SEGMENT="1">
+         <TKNUM>1000521448</TKNUM>
+         <KUNNR>0002201061</KUNNR>
+         <ZQMTCHDR SEGMENT="1">
+            <TKNUM>1000521448</TKNUM>
+            <SHIP_ERDAT>20230929</SHIP_ERDAT>
+            <TNDR_CRNM>PURVIS MARINE LTD</TNDR_CRNM>
+            <VGBEL>0008120974</VGBEL>
+            <VGPOS>000010</VGPOS>
+            <SO_ERDAT>20230929</SO_ERDAT>
+            <BSTKD>70228</BSTKD>
+            <TCNO>ASI-912964</TCNO>
+            <TCDATE>20230930</TCDATE>
+            <TCTIME>181959</TCTIME>
+            <CUST_USE>VETTED RESALE</CUST_USE>
+            <SUPP_INST>Test Cert 1:support@ironvalesteel.com</SUPP_INST>
+            <KUNNR>0002201061</KUNNR>
+            <SHIP_NAME>HEARTLAND METALS SUPPLY CO.</SHIP_NAME>
+            <KUNAG>0002000276</KUNAG>
+            <SOLD_NAME>HEARTLAND METALS AND ALUMINIUM CORPORATION </SOLD_NAME>
+            <INSP_TR>Test Report As Per Spec</INSP_TR>
+            <SPECIFICATION>Sheet</SPECIFICATION>
+            <PROD_TYPE>Hot Rolled Pickled</PROD_TYPE>
+            <MATNR>HRPOCF_A20</MATNR>
+            <BOL_NO>1000521448</BOL_NO>
+            <PLCOIL_CUT>COIL</PLCOIL_CUT>
+            <SIGNI>IRONMASTER 30-23</SIGNI>
+            <NTE>THIS MILL TEST REPORT (MTR) IS GOVERNED BY THE TERMS AND CONDITIONS FOR MTRs AS SET OUT AT WWW.IRONVALESTEEL.COM/LEGAL-2/</NTE>
+            <POSEX_E>000001</POSEX_E>
+            <ZQMTCADRC SEGMENT="1">
+               <AD_QUALIFIER>SH</AD_QUALIFIER>
+               <KUNNR>0002201061</KUNNR>
+               <NAME1>HEARTLAND METALS SUPPLY CO.</NAME1>
+               <SUPPLID>073857559</SUPPLID>
+               <CITY1>OAK CREEK</CITY1>
+               <POST_CODE1>53154</POST_CODE1>
+               <STREET>W FOREST HILL AVE</STREET>
+               <HOUSE_NUM1>535</HOUSE_NUM1>
+               <COUNTRY>US</COUNTRY>
+               <REGION>WI</REGION>
+               <PIN>53154</PIN>
+            </ZQMTCADRC>
+            <ZQMTCADRC SEGMENT="1">
+               <AD_QUALIFIER>SO</AD_QUALIFIER>
+               <KUNNR>0002000276</KUNNR>
+               <NAME1>HEARTLAND METALS CORP.</NAME1>
+               <SUPPLID>782795827</SUPPLID>
+               <CITY1>SOUTH BEND</CITY1>
+               <POST_CODE1>46624</POST_CODE1>
+               <COUNTRY>US</COUNTRY>
+               <REGION>IN</REGION>
+               <PIN>46624</PIN>
+               <FAX>574-236-5187</FAX>
+            </ZQMTCADRC>
+            <ZQMTCADRC SEGMENT="1">
+               <AD_QUALIFIER>SF</AD_QUALIFIER>
+               <SUPPLID>201495124</SUPPLID>
+            </ZQMTCADRC>
+            <ZQMTCCUSTSPEC SEGMENT="1">
+               <SNO>1</SNO>
+               <CUST_SPEC>HR STEEL SHEET HSLA DQ / DS ASTM A1011 HSLAS GR 50 CL 2 (2023) MOD C.10 MAX Top</CUST_SPEC>
+            </ZQMTCCUSTSPEC>
+            <ZQMTCCUSTSPEC SEGMENT="1">
+               <SNO>2</SNO>
+               <CUST_SPEC>Semi Critical Surface Standard Shape Pickled Oiled Gauge type MIN - 0/+ 0.0067 "</CUST_SPEC>
+            </ZQMTCCUSTSPEC>
+            <ZQMTCDIM SEGMENT="1">
+               <WERKS>2810</WERKS>
+               <TKNUM>1000521448</TKNUM>
+               <VGBEL>0008120974</VGBEL>
+               <VGPOS>000010</VGPOS>
+               <COIL_NO>SDN4719</COIL_NO>
+               <HEAT_NO>1480L5</HEAT_NO>
+               <WIDTH>51.250</WIDTH>
+               <GUAGE>0.0680</GUAGE>
+               <QUANTITY>44340</QUANTITY>
+               <UNIT>"</UNIT>
+               <PCS>1</PCS>
+               <MSNO>03</MSNO>
+               <WT_UT>LB</WT_UT>
+               <THICKTYPE>MIN</THICKTYPE>
+               <ZQMTCMECH SEGMENT="1">
+                  <PRUEFLOS>150001046313</PRUEFLOS>
+                  <PHYNR>000101018986</PHYNR>
+                  <VGBEL>0008120974</VGBEL>
+                  <VGPOS>000010</VGPOS>
+                  <TEST_TYPE>TENS</TEST_TYPE>
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <COIL_NO>SDN4719</COIL_NO>
+                  <SOURCE>DSPC</SOURCE>
+                  <COND>AR</COND>
+                  <METHOD>.2</METHOD>
+                  <DIRECTION>L</DIRECTION>
+                  <LOCATION>B</LOCATION>
+                  <QC_INDEX>003</QC_INDEX>
+                  <ZQMTCMECH_CHAR SEGMENT="1">
+                     <CHARACT>EL SCALE</CHARACT>
+                     <VALUE>2"</VALUE>
+                  </ZQMTCMECH_CHAR>
+                  <ZQMTCMECH_CHAR SEGMENT="1">
+                     <CHARACT>ELONG</CHARACT>
+                     <VALUE>27</VALUE>
+                     <MASSEINHSW>%</MASSEINHSW>
+                  </ZQMTCMECH_CHAR>
+                  <ZQMTCMECH_CHAR SEGMENT="1">
+                     <CHARACT>TENSILE</CHARACT>
+                     <VALUE>73.0</VALUE>
+                     <MASSEINHSW>KSI</MASSEINHSW>
+                  </ZQMTCMECH_CHAR>
+                  <ZQMTCMECH_CHAR SEGMENT="1">
+                     <CHARACT>YIELD</CHARACT>
+                     <VALUE>53.0</VALUE>
+                     <MASSEINHSW>KSI</MASSEINHSW>
+                  </ZQMTCMECH_CHAR>
+               </ZQMTCMECH>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Al</CHARACT>
+                  <VALUE>0.026</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>C</CHARACT>
+                  <VALUE>0.05</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Ca</CHARACT>
+                  <VALUE>0.00260</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Cr</CHARACT>
+                  <VALUE>0.03</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Cu</CHARACT>
+                  <VALUE>0.02</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Mn</CHARACT>
+                  <VALUE>0.45</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Mo</CHARACT>
+                  <VALUE>0.00</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>N</CHARACT>
+                  <VALUE>0.0121</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Nb</CHARACT>
+                  <VALUE>0.006</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Ni</CHARACT>
+                  <VALUE>0.01</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>P</CHARACT>
+                  <VALUE>0.011</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>S</CHARACT>
+                  <VALUE>0.003</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Si</CHARACT>
+                  <VALUE>0.020</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Ti</CHARACT>
+                  <VALUE>0.000</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>V</CHARACT>
+                  <VALUE>0.035</VALUE>
+               </ZQMTCCHEM>
+            </ZQMTCDIM>
+            <ZQMTCDIM SEGMENT="1">
+               <WERKS>2810</WERKS>
+               <TKNUM>1000521448</TKNUM>
+               <VGBEL>0008120974</VGBEL>
+               <VGPOS>000010</VGPOS>
+               <COIL_NO>TDN4717</COIL_NO>
+               <HEAT_NO>1480L5</HEAT_NO>
+               <WIDTH>51.250</WIDTH>
+               <GUAGE>0.0680</GUAGE>
+               <QUANTITY>39090</QUANTITY>
+               <UNIT>"</UNIT>
+               <PCS>1</PCS>
+               <MSNO>52</MSNO>
+               <WT_UT>LB</WT_UT>
+               <THICKTYPE>MIN</THICKTYPE>
+               <ZQMTCMECH SEGMENT="1">
+                  <PRUEFLOS>150001046313</PRUEFLOS>
+                  <PHYNR>000101018986</PHYNR>
+                  <VGBEL>0008120974</VGBEL>
+                  <VGPOS>000010</VGPOS>
+                  <TEST_TYPE>TENS</TEST_TYPE>
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <COIL_NO>SDN4719</COIL_NO>
+                  <SOURCE>DSPC</SOURCE>
+                  <COND>AR</COND>
+                  <METHOD>.2</METHOD>
+                  <DIRECTION>L</DIRECTION>
+                  <LOCATION>B</LOCATION>
+                  <QC_INDEX>003</QC_INDEX>
+                  <ZQMTCMECH_CHAR SEGMENT="1">
+                     <CHARACT>EL SCALE</CHARACT>
+                     <VALUE>2"</VALUE>
+                  </ZQMTCMECH_CHAR>
+                  <ZQMTCMECH_CHAR SEGMENT="1">
+                     <CHARACT>ELONG</CHARACT>
+                     <VALUE>27</VALUE>
+                     <MASSEINHSW>%</MASSEINHSW>
+                  </ZQMTCMECH_CHAR>
+                  <ZQMTCMECH_CHAR SEGMENT="1">
+                     <CHARACT>TENSILE</CHARACT>
+                     <VALUE>73.0</VALUE>
+                     <MASSEINHSW>KSI</MASSEINHSW>
+                  </ZQMTCMECH_CHAR>
+                  <ZQMTCMECH_CHAR SEGMENT="1">
+                     <CHARACT>YIELD</CHARACT>
+                     <VALUE>53.0</VALUE>
+                     <MASSEINHSW>KSI</MASSEINHSW>
+                  </ZQMTCMECH_CHAR>
+               </ZQMTCMECH>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Al</CHARACT>
+                  <VALUE>0.026</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>C</CHARACT>
+                  <VALUE>0.05</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Ca</CHARACT>
+                  <VALUE>0.00260</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Cr</CHARACT>
+                  <VALUE>0.03</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Cu</CHARACT>
+                  <VALUE>0.02</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Mn</CHARACT>
+                  <VALUE>0.45</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Mo</CHARACT>
+                  <VALUE>0.00</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>N</CHARACT>
+                  <VALUE>0.0121</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Nb</CHARACT>
+                  <VALUE>0.006</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Ni</CHARACT>
+                  <VALUE>0.01</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>P</CHARACT>
+                  <VALUE>0.011</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>S</CHARACT>
+                  <VALUE>0.003</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Si</CHARACT>
+                  <VALUE>0.020</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>Ti</CHARACT>
+                  <VALUE>0.000</VALUE>
+               </ZQMTCCHEM>
+               <ZQMTCCHEM SEGMENT="1">
+                  <HEAT_NO>1480L5</HEAT_NO>
+                  <CHARACT>V</CHARACT>
+                  <VALUE>0.035</VALUE>
+               </ZQMTCCHEM>
+            </ZQMTCDIM>
+         </ZQMTCHDR>
+      </ZQMTCSHPHDR>
+   </IDOC>
+</ZEDI863>

@@ -64,6 +64,8 @@ You can maintain the qualifier markers if it was defined by the source template.
 Navigate the the Second Tab called "Structure" and select the "Get Proposal" button from the right upper corner. 
  ![IN161_5_09](assets/exercise5/IN161_5_09.png)<br> 
 
+!Note: Qulifier Values will be taken over from the Payload. IN case you may not see them as depicted in the screenshots you may need additional steps to be able to assign those enumerations to the required node.<br>
+For example set Qualifier Markers to enable the qualification with selected scenarios specific values. 
 
 ----
 In the Structure you will see a new Column called "Confidence" with blue bars and beside selected Nodes like **ST** under **863** selection button 
@@ -76,7 +78,13 @@ Navigate to the node **ST** select the two boxes action and select the proposed 
 In SAP Integration Advisor MIGs (Message Implementation Guidelines), the qualification of EDI structure nodes is one of the most powerful modeling techniques because it adds business meaning (semantics) directly into the message structure instead of leaving that interpretation for the mapping runtime.The message structure is composed of logically related pieces of information grouped into generic data segments. You can customize and precisely specify the context of generic elements in your MIG message structure to provide business meaning to the rest of the data in a segment.
 
 
-To do so navigate to the Element **BTR** select the two boxes action and select the proposed Qualification Value _00_
+To do so navigate to the Element **BTR** navigate to the node **353** double clikc on the node to see the Detials Screen on the right side. 
+Navigate to the Section **Qualifier Markers**  select the **+** button and add a Marker to **BTR** by click the **create**.<br> 
+(assets/execrise5/IN161_5_20.png)<br>
+
+(sassets/execrise5/IN161_5_21.png)<br>
+
+Once this is donego to the Action button with two boxes action and select the proposed Qualification Value _00_
  ![IN161_5_11](assets/exercise5/IN161_5_12.png)<br> 
 
 
