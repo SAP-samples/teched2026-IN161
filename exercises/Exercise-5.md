@@ -61,6 +61,7 @@ A few things to keep in mind before you work with a MIG:
 Navigate to the second tab, "Structure", and click the "Get Proposal" button in the upper-right corner.
  ![IN161_5_09](assets/exercise5/IN161_5_09.png)<br>
 
+> **Note:** Qualifier values will be taken over from the payload. In case you do not see them as shown in the screenshots, you may need additional steps to assign those enumerations to the required node — for example, setting qualifier markers to enable qualification with scenario-specific values.
 
 ----
 In the Structure, a new "Confidence" column with blue bars appears next to the proposed nodes (for example, **ST** under **863**).
@@ -73,7 +74,13 @@ Navigate to the node **ST**, use the qualify action (the two-boxes icon), and se
 In SAP Integration Advisor MIGs (Message Implementation Guidelines), qualifying EDI structure nodes is one of the most powerful modeling techniques, because it adds business meaning (semantics) directly into the message structure instead of leaving that interpretation to the mapping runtime. The message structure is composed of logically related pieces of information grouped into generic data segments. You can precisely specify the context of generic elements in your MIG to give business meaning to the rest of the data in a segment.
 
 
-Navigate to element **BTR**, use the qualify action (the two-boxes icon), and select the proposed qualification value _00_.
+To do so navigate to the element **BTR**, then navigate to the node **353** and double-click the node to see the Details panel on the right.
+Navigate to the section **Qualifier Markers**, select the **+** button and add a marker to **BTR** by clicking **Create**.<br>
+![IN161_5_20](assets/exercise5/IN161_5_20.png)<br>
+
+![IN161_5_21](assets/exercise5/IN161_5_21.png)<br>
+
+Once this is done, use the qualify action (the two-boxes icon) and select the proposed qualification value _00_.
  ![IN161_5_12](assets/exercise5/IN161_5_12.png)<br>
 
 

@@ -1,6 +1,10 @@
 # IN161 - Exercise 6 - Create your own Mapping Guideline (MAG) using proposals
 
 ## Overview
+**Prerequisite**:   
+Download the source payload for the simulation steps: [IDoc_Sample_Payload](Payload/IDoc_Sample_Payload.txt)<br>
+
+
 Until now, your agreement has used the mapping that was **migrated from PI/PO** and was already available in the tenant. That is the fastest way to go live, but you often want to own and evolve the mapping yourself in Integration Advisor.
 
 In this exercise you will create your **own Mapping Guideline (MAG)** that maps the SAP IDoc **ZQMOUTTC** (quality certificate) to **ANSI X12 863** (Report of Test Results, version 004010). Instead of mapping every field by hand, you will let the Integration Advisor **knowledge base propose** the mapping for you. Finally, you will plug your new MAG into your Copy agreement, send a message, and verify the result in the B2B Monitor.
