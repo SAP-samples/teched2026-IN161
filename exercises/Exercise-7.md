@@ -3,7 +3,7 @@
 ## Overview
 
 **Prerequisite**:   
-Downlaod the Source payload for the simulation Steps [IDoc_Sample_Payload](Payload/IDoc_Sample_Payload.txt)<br>
+Download the source payload for the simulation steps: [IDoc_Sample_Payload](Payload/IDoc_Sample_Payload.txt)<br>
 
 
 Your MAG from Exercise 6 covers the mandatory field mappings like date conversions, one-to-one mappings from the knowledge base proposal. Additionally to the proposed mapping elements there could be more complex conditional mappings with functions require adjustments. In the example of this ANSI X12 863 message we need transformations with conditional rules to consider test values, units, and material grades need to be reformatted or translated to the partner's conventions.

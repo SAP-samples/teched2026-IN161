@@ -2,7 +2,7 @@
 
 ## Overview
 **Prerequisite**:   
-Downlaod the Source payload for the simulation Steps [IDoc_Sample_Payload](Payload/IDoc_Sample_Payload.txt)<br>
+Download the source payload for the simulation steps: [IDoc_Sample_Payload](Payload/IDoc_Sample_Payload.txt)<br>
 
 
 Until now, your agreement has used the mapping that was **migrated from PI/PO** and was already available in the tenant. That is the fastest way to go live, but you often want to own and evolve the mapping yourself in Integration Advisor.
@@ -102,8 +102,8 @@ Send a test message: go to Design -> Integrations and APIs -> IN161-UserXXX, ope
 
 ----
 
-Continue with: [Exercise 7 - Enhance the mapping with Joule](Exercise-7.md)
+Continue with: [Exercise 7 - Enhance the Mapping Guideline (MAG) with custom functions](Exercise-7.md)
 
-Please give us feedback for this session **IN161**
+Please give us feedback for this session **IN161**. Scan the QR code to open the mobile app, then navigate to this session (IN161) to give your feedback.
 
 ![QR Code](assets/survey_QR.png)
