@@ -69,7 +69,7 @@ In case you do not get a mapping line via the proposed elements between source a
 
 | Mapping Element | Requirement| XPath expression |
 |-----------------|--------|------------------|
-| : ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC/STREET **to** /Interchange/FunctionalGroup/863/N1 [98 = SH]/N3/166 | Create an XPath 2.0 that truncates the house number from the input $nodes_in/STREET if the house number is at the beginning and is just based on numbers.  | `<xsl:sequence select="replace($nodes_in/STREET,'^\d+\s','')"/>` |
+| :  /ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC [AD_QUALIFIER = SH]/STREET **to** /Interchange/FunctionalGroup/863/N1 [98 = ST]/N3/166 | Create an XPath 2.0 that truncates the house number from the input $nodes_in/STREET if the house number is at the beginning and is just based on numbers.  | `<xsl:sequence select="replace($nodes_in/STREET,'^\d+\s','')"/>` |
 
 *Save* your changes. You can run a simulation with the given Payload for the Source Structure to verify the results or you can also run a simulation with the Example Data of the MIG. 
 
