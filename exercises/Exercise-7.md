@@ -114,7 +114,7 @@ Optionally, repeat the process for another transformation of your choice, for ex
 
 | Mapping Element | Requirement| XPath expression |
 |-----------------|--------|------------------|
-|:/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC [AD_QUALIFIER = SO]/FAX  **to**   /Interchange/FunctionalGroup/863/N1 [98 = BY]/PER/364 [365 = FX] | Create an XPath 2.0, expression, where the input is a number with hyphens which need to be removed and set a country code 00 before the first number|  `<xsl:sequence select="concat('00', translate($nodes_in/FAX, '-', ''))"/>` |
+|:/ZEDI863/ZQMTCSHPHDR/ZQMTCHDR/ZQMTCADRC [AD_QUALIFIER = SO]/FAX  **to**   /Interchange/FunctionalGroup/863/N1 [98 = BY]/PER/364 [365 = FX] | Create an XPath 2.0, expression, where the input is a number with hyphens which need to be removed and set a country code 00 before the first number|  `<xsl:sequence select="concat('00', replace($nodes_in/FAX, '-', ''))"/>` |
   
 
 
