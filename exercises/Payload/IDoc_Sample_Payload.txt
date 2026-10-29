@@ -60,7 +60,7 @@
                <SUPPLID>073857559</SUPPLID>
                <CITY1>OAK CREEK</CITY1>
                <POST_CODE1>53154</POST_CODE1>
-               <STREET>W FOREST HILL AVE</STREET>
+               <STREET>345 W FOREST HILL AVE</STREET>
                <HOUSE_NUM1>535</HOUSE_NUM1>
                <COUNTRY>US</COUNTRY>
                <REGION>WI</REGION>
@@ -69,7 +69,7 @@
             <ZQMTCADRC SEGMENT="1">
                <AD_QUALIFIER>SO</AD_QUALIFIER>
                <KUNNR>0002000276</KUNNR>
-               <NAME1>HEARTLAND METALS CORP.</NAME1>
+               <NAME1>HEARTLAND METALS CORPORATION AND PARTNERS</NAME1>
                <SUPPLID>782795827</SUPPLID>
                <CITY1>SOUTH BEND</CITY1>
                <POST_CODE1>46624</POST_CODE1>
